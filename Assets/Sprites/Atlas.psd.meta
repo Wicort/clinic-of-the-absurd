@@ -253,7 +253,7 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,6 +262,50 @@ TextureImporter:
       bones: []
       spriteID: bc5ca68f939acea459e905b3412c16ae
       internalID: -297446533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 128
+        height: 128
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57895fc993678164b88c82206383251a
+      internalID: -1381680015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: card
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 0
+        width: 150
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c779bafdd55bfdb40a6e549eb79a63a8
+      internalID: -1607827678
       vertices: []
       indices: 
       edges: []
@@ -284,7 +328,9 @@ TextureImporter:
       brick_left: -1977583727
       brick_right: 1967625002
       brick_top: 282512641
+      card: -1607827678
       doctor: -297446533
+      door: -1381680015
       floor_tile: 4018074224661003100
       wall_tile: 1130611255
   mipmapLimitGroupName: 

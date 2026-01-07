@@ -14,16 +14,16 @@ public class MedicalRecord : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        Debug.Log($"Medical Interact {patient != null}");
         if (patient == null) return;
 
+        string patientInfo = $"Пациент: {patient.patientName}\nДиагноз: {patient.diagnosis}";
         // Показываем анамнез
-        string fullText = $"Диагноз: {patient.diagnosis}\n\nАнамнез:\n";
+        string anamnes = $"Анамнез:\n";
         foreach (string line in patient.anamnesisLines)
         {
-            fullText += $"• {line}\n";
+            anamnes += $"- {line}\n";
         }
 
-        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullText });
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { patientInfo, anamnes });
     }
 }

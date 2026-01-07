@@ -30,3 +30,5 @@ MonoBehaviour:
     \u043A\u043E\u0442 \u0432 \u043E\u0447\u043A\u0430\u0445."
   actualHumorType: 0
   forbiddenTypes: 
+  isBoss: 1
+  bossSequence: 00000000010000000200000003000000

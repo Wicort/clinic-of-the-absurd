@@ -13,5 +13,9 @@ public class PatientProfile : ScriptableObject
 
     [Header("Механика")]
     public HumorType actualHumorType;
-    public HumorType[] forbiddenTypes = new HumorType[0]; 
+    public HumorType[] forbiddenTypes = new HumorType[0];
+
+    [Header("Босс")]
+    public bool isBoss;
+    public HumorType[] bossSequence = new HumorType[0];
 }

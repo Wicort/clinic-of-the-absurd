@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform visuals;
 
+    public Transform GetVisuals() => visuals;
+
     // ← Теперь храним ссылку на Input Actions
     private PlayerControls inputActions;
 

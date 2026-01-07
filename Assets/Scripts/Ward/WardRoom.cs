@@ -1,6 +1,9 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class WardRoom : MonoBehaviour
 {
@@ -10,10 +13,14 @@ public class WardRoom : MonoBehaviour
     [SerializeField] private Transform _gagButtonsParent;
     [SerializeField] private GameObject _gagButtonPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
+    [SerializeField] private GameObject _absurdObjectPrefab;
 
     private PatientProfile _currentPatient;
     private string _currentDoorId;
     private bool _isPatientCured;
+
+    private int _bossCurrentStep = 0;
+    private bool _isBossMode => _currentPatient != null && _currentPatient.isBoss;
 
     public void Initialize(PatientProfile patient, string doorId, bool isCured)
     {
@@ -24,26 +31,20 @@ public class WardRoom : MonoBehaviour
         if (_patientNameText != null)
             _patientNameText.text = patient.patientName;
 
-        // ВАЖНО: сначала ВСЕГДА показываем пациента
         if (_patientVisual != null)
-            _patientVisual.SetActive(true);
+            _patientVisual.SetActive(!_isPatientCured);
 
-        // И только потом — скрываем, если вылечен
-        if (_isPatientCured)
-        {
-            _patientVisual.SetActive(false);
-        }
+        if (_gagButtonsParent != null)
+            _gagButtonsParent.gameObject.SetActive(!_isPatientCured);
 
         CreateGagButtons();
 
-        // Инициализация медицинских карт
         MedicalRecord[] records = GetComponentsInChildren<MedicalRecord>();
         foreach (var record in records)
         {
             record.Initialize(patient);
         }
 
-        // Инициализация дверей выхода
         WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
         foreach (var door in exitDoors)
         {
@@ -53,12 +54,20 @@ public class WardRoom : MonoBehaviour
 
     public Transform GetPlayerSpawnPoint() => _playerSpawnPoint;
 
+    private void OnDestroy()
+    {
+        if (DialogueBoxUI.Instance != null)
+            DialogueBoxUI.Instance.onDialogueClosed = null;
+    }
+
     private void CreateGagButtons()
     {
+        if (_gagButtonsParent == null || _gagButtonPrefab == null) return;
+
         foreach (Transform child in _gagButtonsParent)
             Destroy(child.gameObject);
 
-        HumorType[] allGags = (HumorType[])Enum.GetValues(typeof(HumorType));
+        HumorType[] allGags = (HumorType[])System.Enum.GetValues(typeof(HumorType));
 
         foreach (HumorType gagType in allGags)
         {
@@ -73,60 +82,274 @@ public class WardRoom : MonoBehaviour
 
     private void OnGagSelected(HumorType gagType)
     {
-        if (_currentPatient == null)
+        if (_currentPatient == null || _isPatientCured) return;
+
+        if (_isBossMode)
         {
-            Debug.LogWarning("WardRoom: patient is null, ignoring gag.");
-            return;
+            HandleBossGag(gagType);
+        }
+        else
+        {
+            // Обычная логика (как раньше)
+            bool isCorrect = (gagType == _currentPatient.actualHumorType);
+            bool isForbidden = System.Array.IndexOf(_currentPatient.forbiddenTypes, gagType) >= 0;
+            HandleGagSequence(gagType, isCorrect, isForbidden);
+        }
+    }
+
+    private void HandleBossGag(HumorType gagType)
+    {
+        string gagLine = GetGagLine(gagType);
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { gagLine });
+
+        DialogueBoxUI.Instance.onDialogueClosed = () =>
+        {
+            if (_bossCurrentStep < _currentPatient.bossSequence.Length &&
+                gagType == _currentPatient.bossSequence[_bossCurrentStep])
+            {
+                _bossCurrentStep++;
+                Debug.Log($"Boss step: {_bossCurrentStep} / {_currentPatient.bossSequence.Length}");
+
+                if (_bossCurrentStep == _currentPatient.bossSequence.Length)
+                {
+                    // ✅ ПОБЕДА — сразу!
+                    OnBossDefeated();
+                }
+                else
+                {
+                    // Продолжаем
+                    string reaction = "Хм... Интересно. Продолжайте.";
+                    DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { reaction });
+                    // Нет подписки — следующий гэг запустится через кнопки
+                }
+            }
+            else
+            {
+                // Ошибка
+                _bossCurrentStep = 0;
+                string failLine = "Ещё одна такая шутка — и вас уволят!";
+                DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { failLine });
+            }
+        };
+    }
+
+    private void OnBossDefeated()
+    {
+        Debug.Log("BOSS DEFEATED! Game completed.");
+
+        PlayPatientReaction("смех");
+        _isPatientCured = true;
+
+        // Скрываем босса
+        if (_patientVisual != null)
+            _patientVisual.SetActive(false);
+
+        // Скрываем кнопки
+        if (_gagButtonsParent != null)
+            _gagButtonsParent.gameObject.SetActive(false);
+
+        // Обновляем двери (опционально)
+        WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
+        foreach (var door in exitDoors)
+        {
+            door.Initialize(_currentDoorId, true);
         }
 
-        if (_isPatientCured)
-        {
-            Debug.Log("Пациент уже вылечен!");
-            return;
-        }
+        // 🔥 НЕ показываем награду!
+        // Вместо этого — финальное сообщение
+        ShowVictoryScreen();
+    }
 
-        bool isCorrect = (gagType == _currentPatient.actualHumorType);
-        bool isForbidden = System.Array.IndexOf(_currentPatient.forbiddenTypes, gagType) >= 0;
+    private void ShowVictoryScreen()
+    {
+        string victoryMessage =
+            "🏆 ПОЗДРАВЛЯЕМ! 🏆\n\n" +
+            "Вы излечили Главврача Грустина и всю больницу!\n" +
+            "Смех — действительно лучшее лекарство.\n\n" +
+            "Спасибо за игру!";
+
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { victoryMessage });
+
+        // Опционально: отключить все взаимодействия
+        // Или показать кнопку "Выйти в меню"
+    }
+
+    private void HandleGagSequence(HumorType gagType, bool isCorrect, bool isForbidden)
+    {
+        string fullMessage = GetGagLine(gagType);
 
         if (isForbidden)
         {
-            Debug.Log($"{_currentPatient.patientName} разозлился! Запрещённый гэг.");
+            //fullMessage += GetAngryLine();
+            DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetAngryLine() });
+            DialogueBoxUI.Instance.onDialogueClosed = () =>
+            {
+                PlayPatientReaction("злость");
+            };
             return;
         }
 
         if (isCorrect)
         {
-            Debug.Log($"Ура! {_currentPatient.patientName} выздоровел!");
-            _isPatientCured = true;
-
-            if (_patientVisual != null)
-                _patientVisual.SetActive(false);
-
-            // Скрываем панель гэгов — лечить больше некого
-            if (_gagButtonsParent != null)
-                _gagButtonsParent.gameObject.SetActive(false);
-
-            // Обновить двери выхода
-            WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
-            foreach (var door in exitDoors)
+            //fullMessage += GetHappyLine();
+            DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetHappyLine() });
+            DialogueBoxUI.Instance.onDialogueClosed = () =>
             {
-                door.Initialize(_currentDoorId, true);
-            }
+                // УСПЕХ
+                PlayPatientReaction("смех");
+                _isPatientCured = true;
+                if (_patientVisual != null)
+                    _patientVisual.SetActive(false);
+                if (_gagButtonsParent != null)
+                    _gagButtonsParent.gameObject.SetActive(false);
 
-            // Выдача награды
-            HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions(3);
-            GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
+                WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
+                foreach (var door in exitDoors)
+                {
+                    door.Initialize(_currentDoorId, true);
+                }
+
+                HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions(3);
+                GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
+            };
+            return;
         }
-        else
+
+        //fullMessage += GetNeutralLine();
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetNeutralLine() });
+        DialogueBoxUI.Instance.onDialogueClosed = () =>
         {
-            Debug.Log($"{_currentPatient.patientName} не смеётся... Попробуй другой гэг.");
+            PlayPatientReaction("нейтрально");
+        };
+    }
+
+    private string GetGagLine(HumorType gagType)
+    {
+        switch (gagType)
+        {
+            case HumorType.Clownish:
+                return "Ха! Ловите банановую кожуру!";
+            case HumorType.Verbal:
+                return "Почему гриб не ходит в школу? Его ждут, пока *вырастят*!";
+            case HumorType.Absurdist:
+                return "*надевает на голову таз* А теперь я — шляпа!";
+            case HumorType.Ironic:
+                return "О, вы точно выздоровеете… прямо как мои шансы на отпуск.";
+            default:
+                return "Э-э... посмейтесь?";
         }
+    }
+
+    private string GetAngryLine() =>
+        new string[] {
+        "Дайте мне другого доктора, этот какой-то идиот!",
+        "Вы меня оскорбляете!",
+        "Я подам на вас в комиссию!"
+        }[Random.Range(0, 3)];
+
+    private string GetHappyLine() =>
+        new string[] {
+        "Доктор, спасибо, я здоров!",
+        "Ха-ха! Мне сразу легче!",
+        "Вы — гений! Я выздоравливаю!"
+        }[Random.Range(0, 3)];
+
+    private string GetNeutralLine() =>
+        new string[] {
+        "Доктор, что это сейчас было?",
+        "Ну... не смешно.",
+        "Я не понял, в чём шутка?"
+        }[Random.Range(0, 3)];
+
+    private IEnumerator PerformGag(HumorType gagType)
+    {
+        switch (gagType)
+        {
+            case HumorType.Clownish:
+                yield return ClownishGag();
+                break;
+            case HumorType.Verbal:
+                yield return VerbalGag();
+                break;
+            case HumorType.Absurdist:
+                yield return AbsurdistGag();
+                break;
+            case HumorType.Ironic:
+                yield return IronicGag();
+                break;
+        }
+    }
+
+    private IEnumerator VerbalGag()
+    {
+        string[] jokes = {
+            "Почему гриб не ходит в школу? Его ждут, пока *вырастят*!",
+            "— Доктор, я чувствую себя собакой!\n— Сколько лет?\n— Три месяца.",
+            "Лучшее лекарство — это когда тебе не выписывают счёт!"
+        };
+        string joke = jokes[Random.Range(0, jokes.Length)];
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { joke });
+        yield return new WaitForSeconds(2f); // даём время прочитать
+    }
+
+    private IEnumerator ClownishGag()
+    {
+        PlayerMovement player = PlayerMovement.Instance;
+        if (player == null) yield break;
+
+        Transform visuals = player.GetVisuals();
+        if (visuals == null) yield break;
+
+        // Анимация падения
+        visuals.DOScaleY(0.8f, 0.1f).SetEase(Ease.InSine);
+        yield return new WaitForSeconds(0.1f);
+
+        visuals.DORotate(new Vector3(0, 0, -20f), 0.1f).SetEase(Ease.InSine);
+        yield return new WaitForSeconds(0.2f);
+
+        visuals.DOScaleY(1f, 0.2f).SetEase(Ease.OutSine);
+        visuals.DORotate(Vector3.zero, 0.2f).SetEase(Ease.OutSine);
+        yield return new WaitForSeconds(0.3f);
+    }
+
+    private IEnumerator AbsurdistGag()
+    {
+        if (_absurdObjectPrefab == null) yield break;
+
+        Vector3 spawnPos = _patientVisual ? _patientVisual.transform.position + Vector3.up * 2f : transform.position + Vector3.up;
+        GameObject obj = Instantiate(_absurdObjectPrefab, spawnPos, Quaternion.identity);
+
+        float startTime = Time.time;
+        while (Time.time - startTime < 2f)
+        {
+            obj.transform.position += Vector3.right * Mathf.Sin(Time.time * 5f) * 0.5f * Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(obj);
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    private IEnumerator IronicGag()
+    {
+        string[] phrases = {
+            "О, вы точно выздоровеете… прямо как мои шансы на премию.",
+            "Смех — лучшее лекарство? Тогда где мой рецепт на 'хохотин'?",
+            "Вы здоровы!.. Шучу. Но было бы смешно, да?"
+        };
+        string phrase = phrases[Random.Range(0, phrases.Length)];
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { phrase });
+        yield return new WaitForSeconds(2f);
+    }
+
+    private void PlayPatientReaction(string emotion)
+    {
+        Debug.Log($"{emotion}");
     }
 
     private void OnGagRewardSelected(HumorType gagType)
     {
         GagDeck.Instance.AddGag(gagType);
-        // Обновляем кнопки — теперь с новыми уровнями
-        CreateGagButtons();
+        CreateGagButtons(); 
     }
 }

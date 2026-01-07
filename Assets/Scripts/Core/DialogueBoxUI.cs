@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueBoxUI : MonoBehaviour
 {
+    public System.Action onDialogueClosed;
+
     public static DialogueBoxUI Instance { get; private set; }
 
     [SerializeField] private Text dialogueText;
@@ -91,9 +93,12 @@ public class DialogueBoxUI : MonoBehaviour
 
     private void CloseDialogue()
     {
+        Debug.Log("DialogueBoxUI: Closed!");
         isShowingDialogue = false;
         currentLines = null;
         currentLineIndex = 0;
         gameObject.SetActive(false);
+        onDialogueClosed?.Invoke();
+        onDialogueClosed = null;
     }
 }
