@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce551edad2bfe82489adc3c3ddbaa911, type: 3}
+  m_Name: PatientDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::PatientDatabase
+  easyPatients:
+  - {fileID: 11400000, guid: 8021d93700cab9b479a6a5a7329f9102, type: 2}
+  - {fileID: 11400000, guid: 8f8ca84260f60fc408b778bf36f448d0, type: 2}
+  - {fileID: 11400000, guid: d03870d4339d8ee4b81e5ae23a9d6357, type: 2}
+  - {fileID: 11400000, guid: f07e279ab08df5844a32795b4ba4066b, type: 2}
+  - {fileID: 11400000, guid: 6f92d9d444158c040831ca5351b0792b, type: 2}
+  hardPatients:
+  - {fileID: 11400000, guid: 279953f1251e3be4abcba3419b653890, type: 2}
+  - {fileID: 11400000, guid: 1a094e5fb9d298c4b989770c3e30289e, type: 2}
+  - {fileID: 11400000, guid: df203b61d9847874080835ad736905aa, type: 2}
+  - {fileID: 11400000, guid: c826aa4082acecc4390bb2c33a7121fd, type: 2}
+  - {fileID: 11400000, guid: a24bd89c85cfa464aad872966d01e018, type: 2}
+  bossPatient: {fileID: 11400000, guid: a2ab0a87d9a2b8b41b65eeec0a5861b3, type: 2}
+  rarePatients: []
