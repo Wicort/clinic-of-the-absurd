@@ -1,8 +1,8 @@
 using Assets.Scripts.Core;
+using System;
 using UnityEngine;
 
 public class StaircaseInteraction : MonoBehaviour, IInteractive
-
 {
     [SerializeField] private int _targetFloor = 2;
     [SerializeField] private string _prompt = "Подняться по лестнице";

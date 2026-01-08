@@ -115,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
             swayTweener?.Complete();
             swayTweener = null;
 
-            // Возвращаем поворот в 0
             if (visuals.localEulerAngles.z != 0f)
             {
                 visuals.DORotate(Vector3.zero, swayHalfCycle * 0.8f)
@@ -125,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
             isBreathing = true;
         }
 
-        // Обновляем "дыхание" только если не в диалоге
         if (isBreathing)
         {
             breathingTimer += Time.deltaTime;

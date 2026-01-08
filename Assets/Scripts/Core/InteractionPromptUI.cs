@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Core;
+using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionPromptUI: MonoBehaviour
 {
     public static InteractionPromptUI Instance { get; private set; }
+
+    public Text PromptText;
 
     private void Awake()
     {
@@ -17,8 +22,11 @@ public class InteractionPromptUI: MonoBehaviour
         }
     }
 
-    public void Show()
+    public void Show(string prompt)
     {
+        if (PromptText != null)
+            PromptText.text = prompt;
+
         gameObject.SetActive(true);
     }
 
@@ -26,4 +34,9 @@ public class InteractionPromptUI: MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void SetPrompt(string prompt)
+    {
+    }
+
 }

@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
         if (interactive != null)
         {
             currentInteractive = interactive;
-            InteractionPromptUI.Instance.Show();
+            InteractionPromptUI.Instance.Show(interactive.GetInteractionPrompt());
         }
     }
 

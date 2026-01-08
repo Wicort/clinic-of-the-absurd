@@ -363,7 +363,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,6 +372,28 @@ TextureImporter:
       bones: []
       spriteID: ee4a4393c96eadb45a70c4b6027848d1
       internalID: -805448741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tapki
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 927
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e29fb25923cf64887c95249a70e02e
+      internalID: 1801489218
       vertices: []
       indices: 
       edges: []
@@ -392,6 +414,7 @@ TextureImporter:
     nameFileIdTable:
       E: -1798146003
       InfoDesc: -2080931565
+      Tapki: 1801489218
       brick_bottom: -854071358
       brick_left: -1977583727
       brick_right: 1967625002

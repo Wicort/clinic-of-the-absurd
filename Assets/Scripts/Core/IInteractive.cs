@@ -1,7 +1,10 @@
-﻿namespace Assets.Scripts.Core
+﻿using System;
+
+namespace Assets.Scripts.Core
 {
     public interface IInteractive
     {
+        
         string GetInteractionPrompt();
         void Interact();
     }

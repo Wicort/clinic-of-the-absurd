@@ -141,23 +141,18 @@ public class WardRoom : MonoBehaviour
         PlayPatientReaction("смех");
         _isPatientCured = true;
 
-        // Скрываем босса
         if (_patientVisual != null)
             _patientVisual.SetActive(false);
 
-        // Скрываем кнопки
         if (_gagButtonsParent != null)
             _gagButtonsParent.gameObject.SetActive(false);
 
-        // Обновляем двери (опционально)
         WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
         foreach (var door in exitDoors)
         {
             door.Initialize(_currentDoorId, true);
         }
 
-        // 🔥 НЕ показываем награду!
-        // Вместо этого — финальное сообщение
         ShowVictoryScreen();
     }
 
@@ -171,6 +166,13 @@ public class WardRoom : MonoBehaviour
 
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { victoryMessage });
 
+        StartCoroutine(ExitToMenu());
+    }
+
+    IEnumerator ExitToMenu()
+    {
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { "Через 5 секунд произойдет автоматический возврат в главное меню." });
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Menu");
     }
 
