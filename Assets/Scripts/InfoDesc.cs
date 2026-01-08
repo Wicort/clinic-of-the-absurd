@@ -3,24 +3,20 @@ using UnityEngine;
 
 public class InfoDesc : MonoBehaviour, IInteractive
 {
-    [Header("Dialogue")]
-    [TextArea(2, 4)]
-    [SerializeField] private string[] dialogueLines;
+    [SerializeField] private string[] _dialogueLines;
+    [SerializeField] private string _prompt = "Прочитать инструкцию";
 
-    [Header("References")]
-    [SerializeField] private DialogueBoxUI dialogueBox; // UI для "облачка"
-
-    public string GetInteractionPrompt() => "Подойти к справочной";
+    public string GetInteractionPrompt() => _prompt;
 
     public void Interact()
     {
-        if (dialogueBox != null)
+        if (DialogueBoxUI.Instance != null)
         {
-            dialogueBox.ShowDialogueSequence(dialogueLines);
+            DialogueBoxUI.Instance.ShowDialogueSequence(_dialogueLines);
         }
         else
         {
-            Debug.LogWarning("DialogueBoxUI not assigned to InfoDesk!");
+            Debug.LogError("DialogueBoxUI not found on scene!");
         }
     }
 }

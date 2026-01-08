@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5075225426334382684}
+  - component: {fileID: 6107462462454052022}
   m_Layer: 0
   m_Name: Staircase
   m_TagString: Untagged
@@ -32,6 +33,52 @@ Transform:
   - {fileID: 2014622866324261866}
   m_Father: {fileID: 6707455468836078203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6107462462454052022
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287023174438522222}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 6.9416537, y: 2.6970754}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.1141996, y: 2.6447744}
+  m_EdgeRadius: 0
 --- !u!1 &447300797966495235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,8 +2347,8 @@ Transform:
   m_GameObject: {fileID: 1948498850418963928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.36, y: -0.9823, z: 0}
-  m_LocalScale: {x: 6.1916, y: 1.7206666, z: 1}
+  m_LocalPosition: {x: -10.8896, y: -0.1848, z: 0}
+  m_LocalScale: {x: 0.5573624, y: 0.5482639, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4548404833723441433}
@@ -2353,9 +2400,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -90
+  m_SortingOrder: -80
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2080931565, guid: 9747ec06241ad8a428a5bd83d8cc5d36, type: 3}
   m_Color: {r: 0.7725491, g: 0.7372549, b: 0.82745105, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2399,17 +2446,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.7846714, y: 0.029288232}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6, y: 3.484375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2325194, y: 1}
+  m_Size: {x: 1.8018622, y: 3.471918}
   m_EdgeRadius: 0
 --- !u!114 &2843373944748075759
 MonoBehaviour:
@@ -2423,28 +2470,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a74aa544539b764c9229d1ee702b77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfoDesc
-  dialogueLines:
+  _dialogueLines:
   - "\u041F\u0440\u0438\u0432\u0435\u0442, \u0441\u0442\u0430\u0436\u0451\u0440!
-    \u0422\u044B - \u043D\u0430\u0448\u0430 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u044F\u044F
+    \u0422\u044B \u2014 \u043D\u0430\u0448\u0430 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u044F\u044F
     \u043D\u0430\u0434\u0435\u0436\u0434\u0430 \u0432 \u0431\u043E\u0440\u044C\u0431\u0435
     \u0441 \u0433\u0440\u0443\u0441\u0442\u044C\u044E!"
   - "\u041F\u0430\u0446\u0438\u0435\u043D\u0442\u044B \u0437\u0434\u0435\u0441\u044C
     \u043B\u0435\u0447\u0430\u0442\u0441\u044F \u0442\u043E\u043B\u044C\u043A\u043E
     \u043E\u0434\u043D\u0438\u043C \u0441\u043F\u043E\u0441\u043E\u0431\u043E\u043C
-    - \u0441\u043C\u0435\u0445\u043E\u043C. \u0414\u0430-\u0434\u0430, \u0441\u0435\u0440\u044C\u0451\u0437\u043D\u043E!"
+    \u2014 \u0441\u043C\u0435\u0445\u043E\u043C. \u0414\u0430-\u0434\u0430, \u0441\u0435\u0440\u044C\u0451\u0437\u043D\u043E!"
   - "\u041F\u043E\u0434\u043E\u0439\u0434\u0438 \u043A \u043B\u044E\u0431\u043E\u0439
     \u043F\u0430\u043B\u0430\u0442\u0435, \u043E\u0442\u043A\u0440\u043E\u0439 \u043A\u0430\u0440\u0442\u0443
     \u0438 \u043D\u0430\u0439\u0434\u0438 \u043A\u043B\u044E\u0447 \u043A \u044E\u043C\u043E\u0440\u0443
     \u044D\u0442\u043E\u0433\u043E \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430."
   - "\u0412\u044B\u0431\u0435\u0440\u0438 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0439
-    \u0433\u044D\u0433 - \u0438 \u043F\u0430\u0446\u0438\u0435\u043D\u0442 \u0432\u044B\u0437\u0434\u043E\u0440\u043E\u0432\u0435\u0435\u0442!
-    \u041D\u0435 \u0443\u0433\u0430\u0434\u0430\u0435\u0448\u044C - \u0441\u0442\u0430\u043D\u0435\u0442
+    \u0433\u044D\u0433 \u2014 \u0438 \u043F\u0430\u0446\u0438\u0435\u043D\u0442 \u0432\u044B\u0437\u0434\u043E\u0440\u043E\u0432\u0435\u0435\u0442!
+    \u041D\u0435 \u0443\u0433\u0430\u0434\u0430\u0435\u0448\u044C \u2014 \u0441\u0442\u0430\u043D\u0435\u0442
     \u0442\u043E\u043B\u044C\u043A\u043E \u0445\u0443\u0436\u0435."
-  - "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C - \u0432\u043F\u0435\u0440\u0451\u0434!
+  - "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u2014 \u0432\u043F\u0435\u0440\u0451\u0434!
     \u0411\u043E\u043B\u044C\u043D\u0438\u0446\u0430 \u043D\u0435 \u0432\u044B\u043B\u0435\u0447\u0438\u0442
     \u0441\u0430\u043C\u0430 \u0441\u0435\u0431\u044F... \u0445\u043E\u0442\u044F,
     \u043A\u0442\u043E \u0435\u0433\u043E \u0437\u043D\u0430\u0435\u0442?"
-  dialogueBox: {fileID: 0}
+  _prompt: "\u041F\u0440\u043E\u0447\u0438\u0442\u0430\u0442\u044C \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044E"
 --- !u!1 &2249450036446920279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,8 +3222,8 @@ Transform:
   m_GameObject: {fileID: 3858392725404130163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.36, y: 0.8444, z: 0}
-  m_LocalScale: {x: 6.1916, y: 1.996327, z: 1}
+  m_LocalPosition: {x: -10.8395, y: 0.758, z: 0}
+  m_LocalScale: {x: 3.232634, y: 1.9030614, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4548404833723441433}
@@ -3231,7 +3278,7 @@ SpriteRenderer:
   m_SortingOrder: -90
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6099146, g: 0.5762727, b: 0.6603774, a: 1}
+  m_Color: {r: 0.6784314, g: 0.8235295, b: 0.6, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3859,8 +3906,8 @@ Transform:
   m_GameObject: {fileID: 7900828745315802309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4532, y: 2.0386, z: 0}
-  m_LocalScale: {x: 2.9937, y: 3.8027, z: 1}
+  m_LocalPosition: {x: 6.484, y: 2.6986, z: 0}
+  m_LocalScale: {x: 0.751934, y: 0.65908915, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5075225426334382684}
@@ -3914,7 +3961,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -805448741, guid: 9747ec06241ad8a428a5bd83d8cc5d36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3958,17 +4005,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.4263121, y: -0.62319624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1517351, y: 2.8695886}
   m_EdgeRadius: 0
 --- !u!114 &39953152522733198
 MonoBehaviour:
@@ -4017,10 +4064,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4251665347487723142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.09200001, y: 0.716}
-  m_AnchorMax: {x: 0.3884792, y: 0.8028519}
-  m_AnchoredPosition: {x: -1, y: 0}
-  m_SizeDelta: {x: -0.070007324, y: 2.8139954}
+  m_AnchorMin: {x: 0, y: 0.8032592}
+  m_AnchorMax: {x: 0.29252085, y: 0.8918519}
+  m_AnchoredPosition: {x: -2, y: -1}
+  m_SizeDelta: {x: 5.9299927, y: 0.81399536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4043891322477364
 CanvasRenderer:

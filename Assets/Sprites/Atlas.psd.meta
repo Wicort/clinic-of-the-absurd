@@ -297,7 +297,7 @@ TextureImporter:
         width: 150
         height: 255
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,6 +306,72 @@ TextureImporter:
       bones: []
       spriteID: c779bafdd55bfdb40a6e549eb79a63a8
       internalID: -1607827678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoDesc
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 801
+        width: 384
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2016f2b578171404a8e9ac9b4cf7800d
+      internalID: -2080931565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 806
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cd9ffdb83d2224f8230288aa09f75c
+      internalID: -1798146003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stairs
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4a4393c96eadb45a70c4b6027848d1
+      internalID: -805448741
       vertices: []
       indices: 
       edges: []
@@ -324,6 +390,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      E: -1798146003
+      InfoDesc: -2080931565
       brick_bottom: -854071358
       brick_left: -1977583727
       brick_right: 1967625002
@@ -332,6 +400,7 @@ TextureImporter:
       doctor: -297446533
       door: -1381680015
       floor_tile: 4018074224661003100
+      stairs: -805448741
       wall_tile: 1130611255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

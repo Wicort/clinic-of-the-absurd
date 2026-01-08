@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -170,8 +171,7 @@ public class WardRoom : MonoBehaviour
 
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { victoryMessage });
 
-        // Опционально: отключить все взаимодействия
-        // Или показать кнопку "Выйти в меню"
+        SceneManager.LoadScene("Menu");
     }
 
     private void HandleGagSequence(HumorType gagType, bool isCorrect, bool isForbidden)
