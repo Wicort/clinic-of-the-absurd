@@ -154,6 +154,16 @@ public class WardRoom : MonoBehaviour
         }
 
         ShowVictoryScreen();
+        StartCoroutine(ReturnToMenu());
+    }
+
+    private IEnumerator ReturnToMenu()
+    {
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { "Через 5 секунд вы будете возвращены в меню" });
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("Menu");
     }
 
     private void ShowVictoryScreen()
@@ -182,7 +192,6 @@ public class WardRoom : MonoBehaviour
 
         if (isForbidden)
         {
-            //fullMessage += GetAngryLine();
             DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetAngryLine() });
             DialogueBoxUI.Instance.onDialogueClosed = () =>
             {
@@ -193,7 +202,6 @@ public class WardRoom : MonoBehaviour
 
         if (isCorrect)
         {
-            //fullMessage += GetHappyLine();
             DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetHappyLine() });
             DialogueBoxUI.Instance.onDialogueClosed = () =>
             {
@@ -214,10 +222,13 @@ public class WardRoom : MonoBehaviour
                 HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions(3);
                 GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
             };
+            if (HospitalManager.Instance != null)
+            {
+                HospitalManager.Instance.MarkWardAsCured(_currentDoorId);
+            }
             return;
         }
 
-        //fullMessage += GetNeutralLine();
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { fullMessage, GetNeutralLine() });
         DialogueBoxUI.Instance.onDialogueClosed = () =>
         {
@@ -352,6 +363,8 @@ public class WardRoom : MonoBehaviour
     private void OnGagRewardSelected(HumorType gagType)
     {
         GagDeck.Instance.AddGag(gagType);
-        CreateGagButtons(); 
+        CreateGagButtons();
+
+        HospitalManager.Instance?.ExitWard(_currentDoorId, patientCured: true);
     }
 }

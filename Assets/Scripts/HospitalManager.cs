@@ -5,6 +5,8 @@ public class HospitalManager : MonoBehaviour
 {
     public static HospitalManager Instance { get; private set; }
 
+    public System.Action onWardStateChanged;
+
     [Header("Floors")]
     [SerializeField] private GameObject _floor1Prefab;
     [SerializeField] private GameObject _floor2Prefab;
@@ -16,16 +18,17 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] private GameObject _wardRoomPrefab;
     [SerializeField] private Transform _wardZone;
 
-    // Состояния палат (сохраняются между этажами)
     private Dictionary<string, WardState> _wardStates = new Dictionary<string, WardState>();
 
-    // Текущие объекты
     private GameObject _currentFloorInstance;
     private GameObject _currentWardInstance;
     private Transform _currentSpawnPoint;
-    private GameObject _currentHallVisuals; // ← вот оно!
+    private GameObject _currentHallVisuals; 
     private int _currentFloorIndex = 1;
     private bool _isWardActive = false;
+
+    public int CurrentFloorIndex => _currentFloorIndex;
+    public Dictionary<string, WardState> WardStates => _wardStates;
 
     private void Awake()
     {
@@ -74,9 +77,11 @@ public class HospitalManager : MonoBehaviour
             _wardStates[doorId] = state;
         }
 
+        state.hasBeenEntered = true;
+
         PatientProfile patient;
 
-        if (!state.hasBeenEntered)
+        if (state.assignedPatientAssetName == null) // ← используй это вместо hasBeenEntered
         {
             DifficultyLevel level = (DifficultyLevel)floorLevel;
             patient = _patientDatabase.GetRandomPatient(level);
@@ -86,7 +91,6 @@ public class HospitalManager : MonoBehaviour
                 return;
             }
             state.assignedPatientAssetName = patient.name;
-            state.hasBeenEntered = true;
         }
         else
         {
@@ -98,7 +102,6 @@ public class HospitalManager : MonoBehaviour
             }
         }
 
-        // 🔥 Скрываем визуал ТЕКУЩЕГО этажа
         if (_currentHallVisuals != null)
             _currentHallVisuals.SetActive(false);
 
@@ -119,7 +122,6 @@ public class HospitalManager : MonoBehaviour
             return;
         }
 
-        // Переместить игрока внутрь палаты
         if (PlayerMovement.Instance != null)
         {
             Transform playerSpawn = wardRoom.GetPlayerSpawnPoint();
@@ -132,14 +134,8 @@ public class HospitalManager : MonoBehaviour
 
     public void ExitWard(string doorId, bool patientCured = false)
     {
-        if (!_isWardActive) return;
+        if (!_isWardActive) return; 
 
-        if (_wardStates.TryGetValue(doorId, out WardState state))
-        {
-            state.isCured = patientCured;
-        }
-
-        // Вернуть игрока к двери
         if (PlayerMovement.Instance != null && _currentSpawnPoint != null)
         {
             PlayerMovement.Instance.TeleportTo(_currentSpawnPoint);
@@ -151,7 +147,6 @@ public class HospitalManager : MonoBehaviour
             _currentWardInstance = null;
         }
 
-        // 🔥 Показываем визуал ТЕКУЩЕГО этажа
         if (_currentHallVisuals != null)
             _currentHallVisuals.SetActive(true);
 
@@ -159,4 +154,24 @@ public class HospitalManager : MonoBehaviour
         _isWardActive = false;
     }
 
+    public void MarkWardAsCured(string doorId)
+    {
+        if (_wardStates.TryGetValue(doorId, out WardState state))
+        {
+            state.isCured = true;
+            Debug.Log($"[MarkWardAsCured] {doorId} is now cured.");
+        }
+        else
+        {
+            // Если состояния нет — создаём
+            var newState = new WardState(doorId);
+            newState.hasBeenEntered = true;
+            newState.isCured = true;
+            _wardStates[doorId] = newState;
+            Debug.Log($"[MarkWardAsCured] Created new state for {doorId}.");
+        }
+
+        // Уведомляем подписчиков (лестницу)
+        onWardStateChanged?.Invoke();
+    }
 }

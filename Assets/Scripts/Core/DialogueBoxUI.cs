@@ -93,7 +93,6 @@ public class DialogueBoxUI : MonoBehaviour
 
     private void CloseDialogue()
     {
-        Debug.Log("DialogueBoxUI: Closed!");
         isShowingDialogue = false;
         currentLines = null;
         currentLineIndex = 0;
