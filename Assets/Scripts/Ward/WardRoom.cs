@@ -88,14 +88,46 @@ public class WardRoom : MonoBehaviour
         if (_isBossMode)
         {
             HandleBossGag(gagType);
+            return;
         }
-        else
+
+        bool isCorrect = (gagType == _currentPatient.actualHumorType);
+        bool isForbidden = System.Array.IndexOf(_currentPatient.forbiddenTypes, gagType) >= 0;
+
+        if (isForbidden)
         {
-            // Обычная логика (как раньше)
-            bool isCorrect = (gagType == _currentPatient.actualHumorType);
-            bool isForbidden = System.Array.IndexOf(_currentPatient.forbiddenTypes, gagType) >= 0;
-            HandleGagSequence(gagType, isCorrect, isForbidden);
+            HospitalManager.Instance?.RegisterMistake();
+            
+            DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { GetGagLine(gagType) });
+            DialogueBoxUI.Instance.onDialogueClosed = () =>
+            {
+                DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { GetAngryLine() });
+                DialogueBoxUI.Instance.onDialogueClosed = () => { PlayPatientReaction("злость"); };
+            };
+            return;
         }
+
+        if (isCorrect)
+        {
+            HandleGagSequence(gagType, true, false);
+            return;
+        }
+
+        GagCard card = GagDeck.Instance.GetCardByType(gagType);
+        int level = card?.level ?? 1;
+
+        if (level >= 2)
+        {
+            float successChance = 0.3f * (level - 1); 
+            if (Random.value < successChance)
+            {
+                HandleGagSequence(gagType, true, false);
+                return;
+            }
+        }
+
+        // Обычный провал
+        HandleGagSequence(gagType, false, false);
     }
 
     private void HandleBossGag(HumorType gagType)

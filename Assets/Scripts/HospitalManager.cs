@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HospitalManager : MonoBehaviour
 {
@@ -27,6 +29,9 @@ public class HospitalManager : MonoBehaviour
     private int _currentFloorIndex = 1;
     private bool _isWardActive = false;
 
+    private int _currentFloorMistakes = 0;
+    private const int MAX_MISTAKES_PER_FLOOR = 3;
+
     public int CurrentFloorIndex => _currentFloorIndex;
     public Dictionary<string, WardState> WardStates => _wardStates;
 
@@ -43,6 +48,8 @@ public class HospitalManager : MonoBehaviour
 
     public void LoadFloor(int floorIndex)
     {
+        _currentFloorMistakes = 0;
+
         if (_currentFloorInstance != null)
             Destroy(_currentFloorInstance);
 
@@ -174,4 +181,39 @@ public class HospitalManager : MonoBehaviour
         // Уведомляем подписчиков (лестницу)
         onWardStateChanged?.Invoke();
     }
+
+    public void RegisterMistake()
+    {
+        _currentFloorMistakes++;
+        Debug.Log($"Mistakes on floor: {_currentFloorMistakes}/{MAX_MISTAKES_PER_FLOOR}");
+
+        if (_currentFloorMistakes > MAX_MISTAKES_PER_FLOOR)
+        {
+            TriggerGameOver();
+        }
+    }
+
+    private void TriggerGameOver()
+    {
+        string gameOverText =
+            "❌ ИГРА ОКОНЧЕНА ❌\n\n" +
+            "Вы слишком часто злили пациентов.\n" +
+            "Главврач Грустин уволил вас за вредительство психическому здоровью!\n\n" +
+            "Попробуйте снова — и будьте добрее!";
+
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { gameOverText });
+
+
+        StartCoroutine(ReturnToMenu());
+    }
+
+    private IEnumerator ReturnToMenu()
+    {
+        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { "Через 5 секунд вы будете возвращены в меню" });
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("Menu");
+    }
+
 }

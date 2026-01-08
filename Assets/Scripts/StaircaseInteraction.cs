@@ -24,9 +24,9 @@ public class StaircaseInteraction : MonoBehaviour, IInteractive
         else
         {
             string batmanLine =
-                "Ещё не все пациенты здесь вылечены.\n" +
-                "А ты хотел убежать? Настоящий герой — до конца.\n" +
-                "Растяни их улыбки до ушей.";
+                "Товарищь игрок, если вы не обратили внимание, то на этом этаже еще остались грустные пациенты\n" +
+                "Вон, внизу двери открытые. Что, непонятно, что это двери? \n" +
+                "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
 
             DialogueBoxUI.Instance?.ShowDialogueSequence(new string[] { batmanLine });
         }
@@ -47,16 +47,11 @@ public class StaircaseInteraction : MonoBehaviour, IInteractive
 
             if (!doorId.StartsWith(floorPrefix)) continue;
 
-            Debug.Log($"  Door {doorId}: hasBeenEntered={state.hasBeenEntered}, isCured={state.isCured}");
-
-            // Если палата была посещена, но не вылечена — этаж не готов
             if (state.hasBeenEntered && !state.isCured)
             {
-                Debug.Log("❌ Not cured yet!");
                 return false;
             }
         }
-        Debug.Log("✅ All visited wards are cured.");
 
         // Если нет ни одной посещённой палаты — тоже не готов (защита от "просто пройти")
         bool hasAnyVisitedPatient = false;
