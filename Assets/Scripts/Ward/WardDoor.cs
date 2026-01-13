@@ -1,4 +1,4 @@
-using Assets.Scripts.Core;
+ï»¿using Assets.Scripts.Core;
 using UnityEngine;
 
 public class WardDoor : MonoBehaviour, IInteractive
@@ -6,12 +6,14 @@ public class WardDoor : MonoBehaviour, IInteractive
     [Header("Door Settings")]
     [SerializeField] private string _doorId = "1_01";
     [SerializeField] private int _floorLevel = 1;
-    [SerializeField] private string _interactionPrompt = "Âîéòè â ïàëàòó";
+    [SerializeField] private string _interactionPrompt = "Ð’Ð¾Ð¹Ñ‚Ð¸ Ð² Ð¿Ð°Ð»Ð°Ñ‚Ñƒ";
     [SerializeField] private Transform _spawnPoint;
 
     public string GetInteractionPrompt() => _interactionPrompt;
 
     public Transform GetSpawnPoint() => _spawnPoint;
+    
+    public string GetDoorId() => _doorId;
 
     private void OnValidate()
     {

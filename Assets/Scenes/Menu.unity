@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 117339637}
   - component: {fileID: 117339636}
   - component: {fileID: 117339635}
+  - component: {fileID: 117339638}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -155,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.18800001}
   m_AnchorMax: {x: 0.46800002, y: 0.2954158}
-  m_AnchoredPosition: {x: -0.19999695, y: 0.40000916}
+  m_AnchoredPosition: {x: -0.2000122, y: 0.3999939}
   m_SizeDelta: {x: 2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117339635
@@ -252,6 +253,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117339633}
   m_CullTransparentMesh: 1
+--- !u!114 &117339638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117339633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5d03342ecde2f48af55f93e11d6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
+  hoverScale: 1.05
+  animationDuration: 0.2
+  hoverEase: 27
+  exitEase: 27
 --- !u!1 &230459299
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +816,7 @@ GameObject:
   - component: {fileID: 1115230750}
   - component: {fileID: 1115230749}
   - component: {fileID: 1115230748}
+  - component: {fileID: 1115230751}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -823,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.059000004}
   m_AnchorMax: {x: 0.46800002, y: 0.17}
-  m_AnchoredPosition: {x: -0.2000122, y: 0.40000916}
+  m_AnchoredPosition: {x: -0.2000122, y: 0.4000244}
   m_SizeDelta: {x: 2, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115230748
@@ -920,6 +938,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115230746}
   m_CullTransparentMesh: 1
+--- !u!114 &1115230751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115230746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5d03342ecde2f48af55f93e11d6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
+  hoverScale: 1.05
+  animationDuration: 0.2
+  hoverEase: 27
+  exitEase: 27
 --- !u!1 &1914308447
 GameObject:
   m_ObjectHideFlags: 0

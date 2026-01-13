@@ -23,12 +23,57 @@ public class StaircaseInteraction : MonoBehaviour, IInteractive
         }
         else
         {
-            string batmanLine =
-                "Товарищь игрок, если вы не обратили внимание, то на этом этаже еще остались грустные пациенты\n" +
-                "Вон, внизу двери открытые. Что, непонятно, что это двери? \n" +
-                "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
+            // Получаем информацию о количестве пациентов через тот же метод, что и в проверке
+            if (HospitalManager.Instance != null)
+            {
+                string floorPrefix = HospitalManager.Instance.CurrentFloorIndex + "_";
+                
+                // Находим все двери на текущем этаже
+                WardDoor[] allWardDoors = FindObjectsByType<WardDoor>(FindObjectsSortMode.None);
+                int totalWardsOnFloor = 0;
+                int curedWardsOnFloor = 0;
 
-            DialogueBoxUI.Instance?.ShowDialogueSequence(new string[] { batmanLine });
+                foreach (WardDoor door in allWardDoors)
+                {
+                    if (!door.GetDoorId().StartsWith(floorPrefix)) continue;
+
+                    totalWardsOnFloor++;
+                    
+                    // Проверяем состояние палаты в WardStates
+                    if (HospitalManager.Instance.WardStates.TryGetValue(door.GetDoorId(), out WardState state))
+                    {
+                        // Палата считается вылеченной, если она была посещена и пациент вылечен
+                        if (state.hasBeenEntered && state.isCured)
+                        {
+                            curedWardsOnFloor++;
+                        }
+                    }
+                }
+
+                int remainingPatients = totalWardsOnFloor - curedWardsOnFloor;
+                
+                string batmanLine;
+                if (remainingPatients <= 0)
+                {
+                    batmanLine = "Товарищь игрок, на этом этаже еще остались пациенты, которых вы не посещали.\n" +
+                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
+                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
+                }
+                else if (remainingPatients == 1)
+                {
+                    batmanLine = $"Товарищь игрок, на этом этаже еще остался {remainingPatients} грустный пациент.\n" +
+                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
+                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
+                }
+                else
+                {
+                    batmanLine = $"Товарищь игрок, на этом этаже еще осталось {remainingPatients} грустных пациентов.\n" +
+                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
+                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
+                }
+
+                DialogueBoxUI.Instance?.ShowDialogueSequence(new string[] { batmanLine });
+            }
         }
     }
 
@@ -40,31 +85,32 @@ public class StaircaseInteraction : MonoBehaviour, IInteractive
 
         Debug.Log($"Checking floor: {floorPrefix}");
 
-        foreach (var kvp in HospitalManager.Instance.WardStates)
+        // Находим все двери на текущем этаже
+        WardDoor[] allWardDoors = FindObjectsByType<WardDoor>(FindObjectsSortMode.None);
+        int totalWardsOnFloor = 0;
+        int curedWardsOnFloor = 0;
+
+        foreach (WardDoor door in allWardDoors)
         {
-            string doorId = kvp.Key;
-            WardState state = kvp.Value;
+            if (!door.GetDoorId().StartsWith(floorPrefix)) continue;
 
-            if (!doorId.StartsWith(floorPrefix)) continue;
-
-            if (state.hasBeenEntered && !state.isCured)
+            totalWardsOnFloor++;
+            
+            // Проверяем состояние палаты в WardStates
+            if (HospitalManager.Instance.WardStates.TryGetValue(door.GetDoorId(), out WardState state))
             {
-                return false;
+                // Палата считается вылеченной, если она была посещена и пациент вылечен
+                if (state.hasBeenEntered && state.isCured)
+                {
+                    curedWardsOnFloor++;
+                }
             }
         }
 
-        // Если нет ни одной посещённой палаты — тоже не готов (защита от "просто пройти")
-        bool hasAnyVisitedPatient = false;
-        foreach (var kvp in HospitalManager.Instance.WardStates)
-        {
-            if (kvp.Key.StartsWith(floorPrefix) && kvp.Value.hasBeenEntered)
-            {
-                hasAnyVisitedPatient = true;
-                break;
-            }
-        }
+        Debug.Log($"Floor stats: {curedWardsOnFloor}/{totalWardsOnFloor} wards cured");
 
-        return hasAnyVisitedPatient;
-
+        // Лестница доступна только если все палаты на этаже вылечены
+        // И есть хотя бы одна палата на этаже
+        return totalWardsOnFloor > 0 && curedWardsOnFloor >= totalWardsOnFloor;
     }
 }

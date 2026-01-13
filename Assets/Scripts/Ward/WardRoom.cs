@@ -251,7 +251,7 @@ public class WardRoom : MonoBehaviour
                     door.Initialize(_currentDoorId, true);
                 }
 
-                HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions(3);
+                HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions();
                 GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
             };
             if (HospitalManager.Instance != null)

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7129044453558804386}
   - component: {fileID: 3753674972727786598}
   - component: {fileID: 1540974343098545637}
+  - component: {fileID: 3567437982638427185}
   - component: {fileID: 1777915163573444637}
   - component: {fileID: 6884957147346115675}
   m_Layer: 5
@@ -157,6 +158,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3567437982638427185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709289916466426302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5d03342ecde2f48af55f93e11d6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
+  hoverScale: 1.05
+  animationDuration: 0.2
+  hoverEase: 27
+  exitEase: 27
 --- !u!114 &1777915163573444637
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -42,24 +42,33 @@ public class GagDeck : MonoBehaviour
         if (existing != null)
         {
             existing.LevelUp();
-            Debug.Log($"Уровень {existing.displayName} повышен до {existing.level}!");
+            Debug.Log($"РЈСЂРѕРІРµРЅСЊ {existing.displayName} РїРѕРІС‹С€РµРЅ РґРѕ {existing.level}!");
         }
         else
         {
             _cards.Add(new GagCard(type));
-            Debug.Log($"Новый гэг получен: {type}");
+            Debug.Log($"Р”РѕР±Р°РІР»РµРЅР° РЅРѕРІР°СЏ С€СѓС‚РєР°: {type}");
         }
     }
 
-    // Генерация 3 случайных вариантов для награды
-    public HumorType[] GenerateRewardOptions(int count = 3)
+    // Р“РµРЅРµСЂРёСЂСѓРµС‚ СѓРЅРёРєР°Р»СЊРЅС‹Рµ РІР°СЂРёР°РЅС‚С‹ РЅР°РіСЂР°Рґ
+    public HumorType[] GenerateRewardOptions(int count = 2)
     {
         HumorType[] allTypes = (HumorType[])System.Enum.GetValues(typeof(HumorType));
+        System.Collections.Generic.List<HumorType> availableTypes = new System.Collections.Generic.List<HumorType>(allTypes);
         HumorType[] options = new HumorType[count];
 
         for (int i = 0; i < count; i++)
         {
-            options[i] = allTypes[Random.Range(0, allTypes.Length)];
+            if (availableTypes.Count == 0)
+            {
+                Debug.LogWarning("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СѓРЅРёРєР°Р»СЊРЅС‹С… С‚РёРїРѕРІ СЋРјРѕСЂР° РґР»СЏ РіРµРЅРµСЂР°С†РёРё РЅР°РіСЂР°Рґ!");
+                break;
+            }
+            
+            int randomIndex = Random.Range(0, availableTypes.Count);
+            options[i] = availableTypes[randomIndex];
+            availableTypes.RemoveAt(randomIndex);
         }
 
         return options;

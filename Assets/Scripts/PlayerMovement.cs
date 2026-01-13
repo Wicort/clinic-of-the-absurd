@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float breathingTimer = 0f;
 
     private bool IsDialogueOpen => DialogueBoxUI.Instance?.IsShowing == true;
+    private bool IsRewardScreenOpen => GagRewardScreen.Instance != null && GagRewardScreen.Instance.gameObject.activeInHierarchy;
 
     public static PlayerMovement Instance { get; private set; }
 
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsDialogueOpen)
+        if (IsDialogueOpen || IsRewardScreenOpen)
         {
             rb.linearVelocity = Vector2.zero;
         }
@@ -97,8 +98,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (visuals == null) return;
 
-        // 🔥 Ключевое исправление: учитываем диалог при выборе анимации
-        bool isCurrentlyMoving = !IsDialogueOpen && moveInput.magnitude > 0.1f;
+        // 🔥 Ключевое исправление: учитываем диалог и экран наград при выборе анимации
+        bool isCurrentlyMoving = !(IsDialogueOpen || IsRewardScreenOpen) && moveInput.magnitude > 0.1f;
 
         if (isCurrentlyMoving)
         {
