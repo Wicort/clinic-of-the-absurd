@@ -385,7 +385,7 @@ TextureImporter:
         width: 64
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,6 +394,116 @@ TextureImporter:
       bones: []
       spriteID: 64e29fb25923cf64887c95249a70e02e
       internalID: 1801489218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: card2
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 0
+        width: 187
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aace47b2997c75d469c279b54df6a5b2
+      internalID: 1059823489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ironic
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 194
+        width: 150
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c242c2ab1139994897bd127ac950bcd
+      internalID: 89854780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Verbal
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 197
+        width: 150
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d4c20867048144a9ca340f2dfbe8a2
+      internalID: 1181120212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Absourd
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 20
+        width: 150
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb313dc992babd348a884787781f07b8
+      internalID: 1702161768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clown
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 21
+        width: 150
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734a078adc4085a4baafc214528bf07a
+      internalID: 878030468
       vertices: []
       indices: 
       edges: []
@@ -412,14 +522,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Absourd: 1702161768
+      Clown: 878030468
       E: -1798146003
       InfoDesc: -2080931565
+      Ironic: 89854780
       Tapki: 1801489218
+      Verbal: 1181120212
       brick_bottom: -854071358
       brick_left: -1977583727
       brick_right: 1967625002
       brick_top: 282512641
       card: -1607827678
+      card2: 1059823489
       doctor: -297446533
       door: -1381680015
       floor_tile: 4018074224661003100
