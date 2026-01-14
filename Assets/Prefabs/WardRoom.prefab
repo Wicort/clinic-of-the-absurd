@@ -757,6 +757,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GagRewardScreen
   _rewardButtonPrefab: {fileID: 77545585294144800, guid: 72c4800447e8f7f4d87c95a51f79f92a, type: 3}
   _buttonsParent: {fileID: 3209341967668991632}
+  _animationDuration: 0.6
+  _staggerDelay: 0.15
+  _appearEase: 27
+  _scaleEase: 24
+  _startScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2696813055591669539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1705,7 @@ MonoBehaviour:
   _patientVisual: {fileID: 4028723437147467493}
   _patientNameText: {fileID: 2777036461316176298}
   _gagButtonsParent: {fileID: 677281175786168326}
-  _gagButtonPrefab: {fileID: 7709289916466426302, guid: 5f12ad86d9b9ad349ba6d83b47d02cc3, type: 3}
+  _gagButtonPrefab: {fileID: 77545585294144800, guid: 1059d0291901d534ca86cbd6b7358cf5, type: 3}
   _playerSpawnPoint: {fileID: 957858736592809015}
   _absurdObjectPrefab: {fileID: 0}
 --- !u!1 &6211193010654453360
@@ -1774,7 +1779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677281175786168326}
-  - component: {fileID: 1602294696669467319}
+  - component: {fileID: 1783333509458741095}
   m_Layer: 5
   m_Name: GagButtonsPanel
   m_TagString: Untagged
@@ -1796,12 +1801,12 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7661485244575190389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.69687575, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.57666016, y: -254.022}
-  m_SizeDelta: {x: -1.153, y: -508.243}
+  m_AnchorMin: {x: 0.09200001, y: 0}
+  m_AnchorMax: {x: 0.91255957, y: 0.11114437}
+  m_AnchoredPosition: {x: 0, y: -218.5}
+  m_SizeDelta: {x: 3.9169922, y: 449.757}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1602294696669467319
+--- !u!114 &1783333509458741095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1810,16 +1815,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7287825739323156033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
   m_Padding:
     m_Left: 0
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 10
+  m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
