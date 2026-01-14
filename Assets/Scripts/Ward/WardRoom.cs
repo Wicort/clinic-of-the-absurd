@@ -251,13 +251,14 @@ public class WardRoom : MonoBehaviour
                     door.Initialize(_currentDoorId, true);
                 }
 
-                HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions();
-                GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
+                // Показываем карты награды с задержкой 1 секунда
+                StartCoroutine(ShowRewardCardsWithDelay());
+
+                if (HospitalManager.Instance != null)
+                {
+                    HospitalManager.Instance.MarkWardAsCured(_currentDoorId);
+                }
             };
-            if (HospitalManager.Instance != null)
-            {
-                HospitalManager.Instance.MarkWardAsCured(_currentDoorId);
-            }
             return;
         }
 
@@ -266,6 +267,22 @@ public class WardRoom : MonoBehaviour
         {
             PlayPatientReaction("нейтрально");
         };
+    }
+
+    private IEnumerator ShowRewardCardsWithDelay()
+    {
+        // Ждем 1 секунду перед появлением карт
+        yield return new WaitForSeconds(1f);
+        
+        // Показываем карты награды
+        WardExitDoor[] exitDoors = GetComponentsInChildren<WardExitDoor>();
+        foreach (var door in exitDoors)
+        {
+            door.Initialize(_currentDoorId, true);
+        }
+
+        HumorType[] rewards = GagDeck.Instance.GenerateRewardOptions();
+        GagRewardScreen.Instance.ShowRewardScreen(rewards, OnGagRewardSelected);
     }
 
     private string GetGagLine(HumorType gagType)

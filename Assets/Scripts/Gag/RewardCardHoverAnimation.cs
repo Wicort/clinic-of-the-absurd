@@ -49,13 +49,12 @@ public class RewardCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPo
         _currentPulseTween = transform.DOScale(_originalScale, 0.3f)
             .SetEase(Ease.OutSine);
             
-        _currentRotationTween = transform.DORotateQuaternion(_originalRotation, _rotationDuration)
+        _currentRotationTween = transform.DORotate(_originalRotation.eulerAngles, _rotationDuration)
             .SetEase(Ease.OutSine);
     }
 
     private void StartPulseAnimation()
     {
-        // Создаем последовательность пульсации: 115% -> 100% -> 110% -> 100% -> 105%
         Sequence pulseSequence = DOTween.Sequence();
 
         // 115%
@@ -66,15 +65,6 @@ public class RewardCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPo
         pulseSequence.Append(transform.DOScale(_originalScale, _pulseDuration * 0.8f)
             .SetEase(_pulseEase));
             
-        // 110%
-        /*pulseSequence.Append(transform.DOScale(_originalScale * 1.10f, _pulseDuration * 0.7f)
-            .SetEase(_pulseEase));
-            
-        // 100%
-        pulseSequence.Append(transform.DOScale(_originalScale, _pulseDuration * 0.6f)
-            .SetEase(_pulseEase));*/
-            
-        // 105%
         pulseSequence.Append(transform.DOScale(_originalScale * 1.05f, _pulseDuration * 0.5f)
             .SetEase(_pulseEase));
 
