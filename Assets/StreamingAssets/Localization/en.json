@@ -1,0 +1,90 @@
+{
+  "LanguageName": "English",
+  "LanguageCode": "en",
+  "GagTexts": {
+    "Clownish": [
+      "Why aren't there contact circuses? Where can you pet aerial gymnasts and feed acrobats?",
+      "Why did the clown throw his watch out the window? He wanted to see time fly!",
+      "An experienced clown on call will cheer up kids, won't disappoint single moms..."
+    ],
+    "Verbal": [
+      "Why, when I gave my girlfriend skincare product, she doesn't leave?",
+      "The lion's share of tourists didn't return home due to a safari incident.",
+      "- What do you call someone who sold their liver?\n- Well-off."
+    ],
+    "Absurdist": [
+      "Yesterday my slipper filed for marriage with a vacuum cleaner.\nIt said: 'It's the only one that sucks me in!'",
+      "Why do socks always get lost in the washing machine?\nBecause they're looking for a pair in another dimension!",
+      "My sandwich fell butter-side down.\nIt was a gravity conspiracy!"
+    ],
+    "Ironic": [
+      "- Could you make me coffee with foam?\n- Easy peasy.",
+      "Incident in Rostov. A killer sneezed, and police are still racking their brains over who could have ordered the shawarma seller...",
+      "Family news. Tolik named his son Euro. Hopes he'll grow faster..."
+    ],
+    "VerbalGag": [
+      "Why doesn't a mushroom go to school? They're waiting for it to *grow up*!",
+      "— Doctor, I feel like a dog!\n— How old?\n— Three months.",
+      "The best medicine is when they don't bill you!"
+    ],
+    "IronicGag": [
+      "Oh, you'll definitely recover... just like my chances for a bonus.",
+      "Laughter is the best medicine? Then where's my prescription for 'laughter'?",
+      "You're healthy!.. Just kidding. But it would be funny, wouldn't it?"
+    ]
+  },
+  "PatientReactions": {
+    "Angry": [
+      "Give me another doctor, this one is some kind of idiot!",
+      "You're offending me!",
+      "I'll report you to the commission!"
+    ],
+    "Happy": [
+      "Doctor, thank you, I'm healthy!",
+      "Ha-ha! I feel better immediately!",
+      "You're a genius! I'm recovering!"
+    ],
+    "Neutral": [
+      "Doctor, what was that just now?",
+      "Well... not funny.",
+      "I don't get what the joke is?"
+    ],
+    "BossContinue": [
+      "Hmm... Interesting. Continue."
+    ],
+    "BossFail": [
+      "One more joke like that and you're fired!"
+    ]
+  },
+  "UITexts": {
+    "RewardScreenTitle": "Choose Reward",
+    "SelectReward": "Select",
+    "LoadingFloor": "Loading floor...",
+    "ReturningToMenu": "Returning to menu...",
+    "VictoryMessage": "🏆 CONGRATULATIONS! 🏆\n\nYou've cured Chief Doctor Grustin and the entire hospital!\nLaughter is truly the best medicine.\n\nThanks for playing!",
+    "StaircaseNotCured": [
+      "Comrade player, there are still {count} sad patients on this floor.\nDown there, the doors are open. What, don't you understand that these are doors?\nWell, sorry, there wasn't enough time to draw more clearly..."
+    ],
+    "StaircaseNotVisited": [
+      "Comrade player, there are still patients on this floor you haven't visited.\nDown there, the doors are open. What, don't you understand that these are doors?\nWell, sorry, there wasn't enough time to draw more clearly..."
+    ]
+  },
+  "DialogueTexts": {
+    "DefaultGag": "Uh... laugh, please?",
+    "BatmanIntro": [
+      "Welcome to our clinic, doctor! Patients are waiting for your help.",
+      "Remember: laughter is the best medicine. But not all jokes work for all patients.",
+      "Good luck, doctor! The hospital is in your hands."
+    ],
+    "BatmanOutro": [
+      "Excellent work, doctor! You've succeeded!",
+      "Patients have recovered thanks to you.",
+      "Thank you for your help!"
+    ],
+    "Hints": [
+      "Study the patient's medical card before choosing a joke.",
+      "Some types of humor may be forbidden for certain patients.",
+      "The higher the joke level, the greater the chance of success even with the wrong type."
+    ]
+  }
+}

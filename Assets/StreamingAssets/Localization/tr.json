@@ -1,0 +1,90 @@
+{
+  "LanguageName": "Türkçe",
+  "LanguageCode": "tr",
+  "GagTexts": {
+    "Clownish": [
+      "Neden temas temas sirk yok? Havadaki jimnastiklarla oynayıp akrobatları besleyebilirsiniz?",
+      "Palyaço neden saatini pencereden attı? Zamanın nasıl uçtuğunu görmek istedi!",
+      "Deneyimli bir palyaço çağrıda çocukları eğlendirir, yalnız anneleri hayal kırışmaz..."
+    ],
+    "Verbal": [
+      "Neden kız arkadaşımı cilt bakım ürünü verdiğimde gitmiyor?",
+      "Turistlerin aslan payı safari olayı nedeniyle eve dönmedi.",
+      "- Karaciğerini satan kişiye ne denir?\n- Zengin."
+    ],
+    "Absurdist": [
+      "Dün terliğim süpürge ile evlilik için başvuru yaptı.\n'Beni emen tek o' dedi.",
+      "Neden çoraplar her zaman çamaşır makinesinde kaybolur?\nÇünkü başka boyutta arıyorlar!",
+      "Sandviçim tereyağı aşağı düştü.\nBu bir yerçekimi komplosuydu!"
+    ],
+    "Ironic": [
+      "- Bana köpüklü kahve yapması zor olur mu?\n- Kolaydı.",
+      "Rostov'da olay. Bir tetikçinin hapşırması, polis hala şavurma satıcısını kim sipariş edebileceğini kafasını yırtıyor...",
+      "Aile haberleri. Tolik oğlunun adını Euro koydu. Daha hızlı büyüyeceğini umuyor..."
+    ],
+    "VerbalGag": [
+      "Neden mantar okula gitmez? Onu *büyüteceklerini* bekliyorlar!",
+      "— Doktor, kendimi bir köpek gibi hissediyorum!\n— Kaç yaşındasın?\n— Üç ay.",
+      "En iyi ilaç, sana fatura kesmemektir!"
+    ],
+    "IronicGag": [
+      "Oh, kesinlikle iyileşeceksin... tıpkı prim şanslarım gibi.",
+      "Gülme en iyi ilaçsa, 'kahkaha' reçetem nerede?",
+      "Sağlısın!.. Şaka yapıyorum. Ama komik olurdu, değil mi?"
+    ]
+  },
+  "PatientReactions": {
+    "Angry": [
+      "Bana başka bir doktor verin, bu bir çeşit aptal!",
+      "Beni incitiyorsunuz!",
+      "Sizi komisyona şikayet edeceğim!"
+    ],
+    "Happy": [
+      "Doktor, teşekkürler, sağlıyım!",
+      "Ha-ha! Hemen daha iyi hissediyorum!",
+      "Bir dahi'siniz! İyileşiyorum!"
+    ],
+    "Neutral": [
+      "Doktor, bu şimdi neydi?",
+      "Eh... komik değil.",
+      "Şakanın ne olduğunu anlamadım?"
+    ],
+    "BossContinue": [
+      "Hmm... İlginç. Devam edin."
+    ],
+    "BossFail": [
+      "Böyle bir şaka daha olursa ve kovulursunuz!"
+    ]
+  },
+  "UITexts": {
+    "RewardScreenTitle": "Ödül Seç",
+    "SelectReward": "Seç",
+    "LoadingFloor": "Kat yükleniyor...",
+    "ReturningToMenu": "Menüye dönülüyor...",
+    "VictoryMessage": "🏆 TEBRİKLER! 🏆\n\nBaş Hekim Grustin'i ve tüm hastaneyi iyileştirdiniz!\nGülme gerçekten en iyi ilaçtır.\n\nOynadığınız için teşekkürler!",
+    "StaircaseNotCured": [
+      "Yoldaş oyuncu, bu katta hala {count} üzgün hasta var.\nAşağıda, kapılar açık. Anlamıyorsun, bunların kapı olduğunu mu?\nEh, özür, daha net çizmek için zaman yoktu..."
+    ],
+    "StaircaseNotVisited": [
+      "Yoldaş oyuncu, bu katta henüz ziyaret etmediğiniz hastalar var.\nAşağıda, kapılar açık. Anlamıyorsun, Bunların kapı olduğunu mu?\nEh, Özür, daha net çizmek için zaman yoktu..."
+    ]
+  },
+  "DialogueTexts": {
+    "DefaultGag": "Ee... gülsenize?",
+    "BatmanIntro": [
+      "Kliniğimize hoş geldiniz, doktor! Hastalar yardımınızı bekliyor.",
+      "Unutmayın: gülme en iyi ilaçtır. Ama tüm şakalar tüm hastalara uymaz.",
+      "İyi şanslar, doktor! Hastane sizin ellerinizde."
+    ],
+    "BatmanOutro": [
+      "Mükemmel iş, doktor! Başardınız!",
+      "Hastalar sizin sayenizde iyileşti.",
+      "Yardımınız için teşekkürler!"
+    ],
+    "Hints": [
+      "Şaka seçmeden önce hastanın tıbbi kartını inceleyin.",
+      "Bazı mizah türleri belirli hastalar için yasaklanabilir.",
+      "Şaka seviyesi ne kadar yüksekse, yanlış türde bile başarı şansı o kadar artar."
+    ]
+  }
+}
