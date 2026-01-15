@@ -13,7 +13,6 @@ public class GagRewardScreen : MonoBehaviour
     [Header("Animation Settings")]
     [SerializeField] private float _animationDuration = 0.6f;
     [SerializeField] private float _staggerDelay = 0.15f;
-    [SerializeField] private Ease _appearEase = Ease.OutBack;
     [SerializeField] private Ease _scaleEase = Ease.OutElastic;
     [SerializeField] private Vector3 _startScale = Vector3.zero;
 

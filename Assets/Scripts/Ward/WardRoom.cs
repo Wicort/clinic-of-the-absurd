@@ -151,7 +151,7 @@ public class WardRoom : MonoBehaviour
                 else
                 {
                     // Продолжаем
-                    string reaction = "Хм... Интересно. Продолжайте.";
+                    string reaction = LocalizationManager.GetPatientReaction(PatientReactionType.BossContinue);
                     DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { reaction });
                     // Нет подписки — следующий гэг запустится через кнопки
                 }
@@ -160,7 +160,7 @@ public class WardRoom : MonoBehaviour
             {
                 // Ошибка
                 _bossCurrentStep = 0;
-                string failLine = "Ещё одна такая шутка — и вас уволят!";
+                string failLine = LocalizationManager.GetPatientReaction(PatientReactionType.BossFail);
                 DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { failLine });
             }
         };
@@ -200,12 +200,7 @@ public class WardRoom : MonoBehaviour
 
     private void ShowVictoryScreen()
     {
-        string victoryMessage =
-            "🏆 ПОЗДРАВЛЯЕМ! 🏆\n\n" +
-            "Вы излечили Главврача Грустина и всю больницу!\n" +
-            "Смех — действительно лучшее лекарство.\n\n" +
-            "Спасибо за игру!";
-
+        string victoryMessage = LocalizationManager.GetUIText(UIKeyType.VictoryMessage);
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { victoryMessage });
 
         StartCoroutine(ExitToMenu());
@@ -287,57 +282,23 @@ public class WardRoom : MonoBehaviour
 
     private string GetGagLine(HumorType gagType)
     {
-        switch (gagType)
-        {
-            case HumorType.Clownish:
-                return new string[] {
-                    "Почему нет контактных цирков? Где можно гладить воздушных гимнасток и кормить акробатов?",
-                    "Почему клоун выбросил свои часы из окна? Он хотел посмотреть, как летит время!",
-                    "Опытный клоун по вызову от души повеселит детишек, не разочарует и одиноких мам…"
-                }[Random.Range(0, 3)];
-            case HumorType.Verbal:
-                return new string[] {
-                    "Почему, когда я подарил своей девушке средство для ухода, она не уходит?",
-                    "Львиная доля туристов не вернулась домой из-за инцидента на сафари.",
-                    "- Как называют человека, который продал свою печень?\n- Обеспеченный."
-                }[Random.Range(0, 3)];
-            case HumorType.Absurdist:
-                return new string[] {
-                    "Вчера мой тапок подал заявление на брак с пылесосом.\nСказал: ‘Он единственный, кто меня всасывает!’",
-                    "Почему носки всегда теряются в стиральной машине?\nПотому что они ищут пару в другом измерении!",
-                    "Мой бутерброд упал маслом вниз.\nЭто был заговор гравитации!"
-                }[Random.Range(0, 3)];
-            case HumorType.Ironic:
-                return new string[] {
-                    "- Вам не трудно сделать мне кофе с пенкой?\n- Да раз плюнуть.",
-                    "Происшествие в Ростове. Киллер чихнул, а полиция до сих пор ломает голову, кто мог заказать продавца шаурмы…",
-                    "Семейные новости. Толик назвал своего сына – Евро. Надеется, так он будет расти быстрее…"
-                }[Random.Range(0, 3)];
-            default:
-                return "Э-э... посмейтесь?";
-        }
+        return LocalizationManager.GetGagText(gagType);
     }
 
-    private string GetAngryLine() =>
-        new string[] {
-        "Дайте мне другого доктора, этот какой-то идиот!",
-        "Вы меня оскорбляете!",
-        "Я подам на вас в комиссию!"
-        }[Random.Range(0, 3)];
+    private string GetAngryLine()
+    {
+        return LocalizationManager.GetPatientReaction(PatientReactionType.Angry);
+    }
 
-    private string GetHappyLine() =>
-        new string[] {
-        "Доктор, спасибо, я здоров!",
-        "Ха-ха! Мне сразу легче!",
-        "Вы — гений! Я выздоравливаю!"
-        }[Random.Range(0, 3)];
+    private string GetHappyLine()
+    {
+        return LocalizationManager.GetPatientReaction(PatientReactionType.Happy);
+    }
 
-    private string GetNeutralLine() =>
-        new string[] {
-        "Доктор, что это сейчас было?",
-        "Ну... не смешно.",
-        "Я не понял, в чём шутка?"
-        }[Random.Range(0, 3)];
+    private string GetNeutralLine()
+    {
+        return LocalizationManager.GetPatientReaction(PatientReactionType.Neutral);
+    }
 
     private IEnumerator PerformGag(HumorType gagType)
     {
@@ -360,12 +321,7 @@ public class WardRoom : MonoBehaviour
 
     private IEnumerator VerbalGag()
     {
-        string[] jokes = {
-            "Почему гриб не ходит в школу? Его ждут, пока *вырастят*!",
-            "— Доктор, я чувствую себя собакой!\n— Сколько лет?\n— Три месяца.",
-            "Лучшее лекарство — это когда тебе не выписывают счёт!"
-        };
-        string joke = jokes[Random.Range(0, jokes.Length)];
+        string joke = LocalizationManager.GetGagAnimationText(GagAnimationType.Verbal);
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { joke });
         yield return new WaitForSeconds(2f); // даём время прочитать
     }
@@ -410,12 +366,7 @@ public class WardRoom : MonoBehaviour
 
     private IEnumerator IronicGag()
     {
-        string[] phrases = {
-            "О, вы точно выздоровеете… прямо как мои шансы на премию.",
-            "Смех — лучшее лекарство? Тогда где мой рецепт на 'хохотин'?",
-            "Вы здоровы!.. Шучу. Но было бы смешно, да?"
-        };
-        string phrase = phrases[Random.Range(0, phrases.Length)];
+        string phrase = LocalizationManager.GetGagAnimationText(GagAnimationType.Ironic);
         DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { phrase });
         yield return new WaitForSeconds(2f);
     }

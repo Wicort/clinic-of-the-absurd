@@ -52,25 +52,11 @@ public class StaircaseInteraction : MonoBehaviour, IInteractive
 
                 int remainingPatients = totalWardsOnFloor - curedWardsOnFloor;
                 
-                string batmanLine;
-                if (remainingPatients <= 0)
-                {
-                    batmanLine = "Товарищь игрок, на этом этаже еще остались пациенты, которых вы не посещали.\n" +
-                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
-                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
-                }
-                else if (remainingPatients == 1)
-                {
-                    batmanLine = $"Товарищь игрок, на этом этаже еще остался {remainingPatients} грустный пациент.\n" +
-                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
-                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
-                }
-                else
-                {
-                    batmanLine = $"Товарищь игрок, на этом этаже еще осталось {remainingPatients} грустных пациентов.\n" +
-                                 "Вон, внизу двери открытые. Что, непонятно, что это двери?\n" +
-                                 "Ну, простите, времени было мало, чтоб нарисовать понятнее...";
-                }
+                StaircaseTextType textType = remainingPatients <= 0 ? 
+                    StaircaseTextType.NotVisited : 
+                    StaircaseTextType.NotCured;
+                
+                string batmanLine = LocalizationManager.GetStaircaseText(textType, remainingPatients);
 
                 DialogueBoxUI.Instance?.ShowDialogueSequence(new string[] { batmanLine });
             }

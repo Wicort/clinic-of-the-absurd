@@ -759,7 +759,6 @@ MonoBehaviour:
   _buttonsParent: {fileID: 3209341967668991632}
   _animationDuration: 0.6
   _staggerDelay: 0.15
-  _appearEase: 27
   _scaleEase: 24
   _startScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2696813055591669539
@@ -1084,10 +1083,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7661485244575190389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.33528253, y: 0.03814437}
-  m_AnchorMax: {x: 0.66455936, y: 0.11114437}
-  m_AnchoredPosition: {x: 0, y: -0.057128906}
-  m_SizeDelta: {x: -1.8109741, y: 3.8850098}
+  m_AnchorMin: {x: 0.33532873, y: 0.9082974}
+  m_AnchorMax: {x: 0.66443706, y: 0.98700005}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: -1.8109741, y: -2.1149902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &709410212229693135
 CanvasRenderer:
@@ -1130,9 +1129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PatientName
-
-'
+  m_Text: PatientName
 --- !u!1 &3955565254908719859
 GameObject:
   m_ObjectHideFlags: 0
