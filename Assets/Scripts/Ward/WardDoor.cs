@@ -6,10 +6,9 @@ public class WardDoor : MonoBehaviour, IInteractive
     [Header("Door Settings")]
     [SerializeField] private string _doorId = "1_01";
     [SerializeField] private int _floorLevel = 1;
-    [SerializeField] private string _interactionPrompt = "Войти в палату";
     [SerializeField] private Transform _spawnPoint;
 
-    public string GetInteractionPrompt() => _interactionPrompt;
+    public string GetInteractionPrompt() => LocalizationManager.GetInteractionPrompt(InteractionPromptType.WardDoor);
 
     public Transform GetSpawnPoint() => _spawnPoint;
     

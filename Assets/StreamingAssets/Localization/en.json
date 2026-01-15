@@ -58,16 +58,27 @@
   },
   "UITexts": {
     "RewardScreenTitle": "Choose Reward",
-    "SelectReward": "Select",
+    "SelectReward": "Select Reward",
     "LoadingFloor": "Loading floor...",
-    "ReturningToMenu": "Returning to menu...",
-    "VictoryMessage": "🏆 CONGRATULATIONS! 🏆\n\nYou've cured Chief Doctor Grustin and the entire hospital!\nLaughter is truly the best medicine.\n\nThanks for playing!",
+    "ReturningToMenu": "Returning to menu",
+    "VictoryMessage": "Victory!",
     "StaircaseNotCured": [
-      "Comrade player, there are still {count} sad patients on this floor.\nDown there, the doors are open. What, don't you understand that these are doors?\nWell, sorry, there wasn't enough time to draw more clearly..."
+      "Cannot go to the next floor until all patients are cured. Remaining: {count}",
+      "First cure all patients on this floor. Remaining: {count}",
+      "Next floor is only available after curing all patients. Remaining: {count}"
     ],
     "StaircaseNotVisited": [
-      "Comrade player, there are still patients on this floor you haven't visited.\nDown there, the doors are open. What, don't you understand that these are doors?\nWell, sorry, there wasn't enough time to draw more clearly..."
-    ]
+      "Cannot go to the next floor until all wards are visited",
+      "First visit all wards on this floor",
+      "Visit all wards before going to the next floor"
+    ],
+    "WardDoorPrompt": "Enter ward",
+    "WardExitDoorPrompt": "Exit ward",
+    "WardExitDoorCuredPrompt": "Exit ward (patient cured!)",
+    "MedicalRecordPrompt": "Read medical record",
+    "InfoDescPrompt": "Read description",
+    "StaircaseAvailablePrompt": "Go up stairs",
+    "StaircaseBlockedPrompt": "Go up stairs (unavailable)"
   },
   "DialogueTexts": {
     "DefaultGag": "Uh... laugh, please?",

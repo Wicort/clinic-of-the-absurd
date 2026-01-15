@@ -1,12 +1,12 @@
-using Assets.Scripts.Core;
+п»їusing Assets.Scripts.Core;
 using UnityEngine;
 
 public class InfoDesc : MonoBehaviour, IInteractive
 {
     [SerializeField] private string[] _dialogueLines;
-    [SerializeField] private string _prompt = "Прочитать инструкцию";
+    [SerializeField] private string _prompt = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 
-    public string GetInteractionPrompt() => _prompt;
+    public string GetInteractionPrompt() => LocalizationManager.GetInteractionPrompt(InteractionPromptType.InfoDesc);
 
     public void Interact()
     {

@@ -5,14 +5,12 @@ using UnityEngine;
 public class StaircaseInteraction : MonoBehaviour, IInteractive
 {
     [SerializeField] private int _targetFloor = 2;
-    [SerializeField] private string _promptWhenBlocked = "Подняться по лестнице (недоступно)";
-    [SerializeField] private string _prompt = "Подняться по лестнице";
 
     public string GetInteractionPrompt()
     {
         return IsCurrentFloorFullyCured()
-            ? _prompt
-            : _promptWhenBlocked;
+            ? LocalizationManager.GetInteractionPrompt(InteractionPromptType.StaircaseAvailable)
+            : LocalizationManager.GetInteractionPrompt(InteractionPromptType.StaircaseBlocked);
     }
 
     public void Interact()

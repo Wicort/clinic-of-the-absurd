@@ -32,6 +32,17 @@ public enum UIKeyType
     VictoryMessage
 }
 
+public enum InteractionPromptType
+{
+    WardDoor,
+    WardExitDoor,
+    WardExitDoorCured,
+    MedicalRecord,
+    InfoDesc,
+    StaircaseAvailable,
+    StaircaseBlocked
+}
+
 public enum StaircaseTextType
 {
     NotCured,
@@ -118,6 +129,15 @@ public class UITexts
     [Header("Лестница")]
     public string[] StaircaseNotCured;
     public string[] StaircaseNotVisited;
+    
+    [Header("Промпты интерактивных объектов")]
+    public string WardDoorPrompt;
+    public string WardExitDoorPrompt;
+    public string WardExitDoorCuredPrompt;
+    public string MedicalRecordPrompt;
+    public string InfoDescPrompt;
+    public string StaircaseAvailablePrompt;
+    public string StaircaseBlockedPrompt;
 }
 
 [Serializable]
@@ -144,7 +164,7 @@ public class LocalizationManager : MonoBehaviour
     }
     
     private static Dictionary<string, LanguageData> _loadedLanguages = new Dictionary<string, LanguageData>();
-    private static string _currentLanguageCode = "en";
+    private static string _currentLanguageCode = "ru"; // Временно, изменится после загрузки
     
     public static string CurrentLanguageCode => _currentLanguageCode;
     public static string CurrentLanguageName => _loadedLanguages.ContainsKey(_currentLanguageCode) ? 
@@ -212,6 +232,20 @@ public class LocalizationManager : MonoBehaviour
         if (_loadedLanguages.Count == 0)
         {
             Debug.LogWarning("Не найдено ни одного файла локализации!");
+        }
+        else
+        {
+            // Устанавливаем язык по умолчанию после загрузки
+            if (!_loadedLanguages.ContainsKey(_currentLanguageCode))
+            {
+                _currentLanguageCode = _loadedLanguages.Keys.First();
+            }
+            // Переключаем на английский если доступен
+            if (_loadedLanguages.ContainsKey("en"))
+            {
+                _currentLanguageCode = "en";
+            }
+            Debug.Log($"Установлен язык по умолчанию: {CurrentLanguageName} ({CurrentLanguageCode})");
         }
     }
     
@@ -352,6 +386,47 @@ public class LocalizationManager : MonoBehaviour
             default:
                 return "Текст не найден";
         }
+    }
+    
+    public static string GetInteractionPrompt(InteractionPromptType promptType)
+    {
+        if (CurrentLanguage?.UITexts == null) 
+        {
+            Debug.LogWarning("UI тексты не загружены!");
+            return "Текст не найден";
+        }
+        
+        string result;
+        switch (promptType)
+        {
+            case InteractionPromptType.WardDoor:
+                result = CurrentLanguage.UITexts.WardDoorPrompt;
+                break;
+            case InteractionPromptType.WardExitDoor:
+                result = CurrentLanguage.UITexts.WardExitDoorPrompt;
+                break;
+            case InteractionPromptType.WardExitDoorCured:
+                result = CurrentLanguage.UITexts.WardExitDoorCuredPrompt;
+                break;
+            case InteractionPromptType.MedicalRecord:
+                result = CurrentLanguage.UITexts.MedicalRecordPrompt;
+                break;
+            case InteractionPromptType.InfoDesc:
+                result = CurrentLanguage.UITexts.InfoDescPrompt;
+                break;
+            case InteractionPromptType.StaircaseAvailable:
+                result = CurrentLanguage.UITexts.StaircaseAvailablePrompt;
+                break;
+            case InteractionPromptType.StaircaseBlocked:
+                result = CurrentLanguage.UITexts.StaircaseBlockedPrompt;
+                break;
+            default:
+                result = "Текст не найден";
+                break;
+        }
+        
+        Debug.Log($"GetInteractionPrompt({promptType}) -> '{result}' (текущий язык: {CurrentLanguageCode})");
+        return result;
     }
     
     public static string GetStaircaseText(StaircaseTextType textType, int remainingPatients = 0)

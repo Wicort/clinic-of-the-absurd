@@ -191,7 +191,7 @@ public class WardRoom : MonoBehaviour
 
     private IEnumerator ReturnToMenu()
     {
-        DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { "Через 5 секунд вы будете возвращены в меню" });
+        //DialogueBoxUI.Instance.ShowDialogueSequence(new string[] { "Через 5 секунд вы будете возвращены в меню" });
 
         yield return new WaitForSeconds(5f);
 

@@ -1,9 +1,9 @@
-using Assets.Scripts.Core;
+п»їusing Assets.Scripts.Core;
 using UnityEngine;
 
 public class WardExitDoor : MonoBehaviour, IInteractive
 {
-    private string sourceDoorId; // ID двери, через которую вошли
+    private string sourceDoorId; 
     private bool isCured = false;
 
     public void Initialize(string doorId, bool patientCured)
@@ -15,8 +15,8 @@ public class WardExitDoor : MonoBehaviour, IInteractive
     public string GetInteractionPrompt()
     {
         return isCured
-            ? "Вернуться в холл (пациент вылечен!)"
-            : "Вернуться в холл";
+            ? LocalizationManager.GetInteractionPrompt(InteractionPromptType.WardExitDoorCured)
+            : LocalizationManager.GetInteractionPrompt(InteractionPromptType.WardExitDoor);
     }
 
     public void Interact()

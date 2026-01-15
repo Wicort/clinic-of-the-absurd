@@ -1,4 +1,4 @@
-using Assets.Scripts.Core;
+п»їusing Assets.Scripts.Core;
 using UnityEngine;
 
 public class MedicalRecord : MonoBehaviour, IInteractive
@@ -10,15 +10,15 @@ public class MedicalRecord : MonoBehaviour, IInteractive
         patient = profile;
     }
 
-    public string GetInteractionPrompt() => "Прочитать медицинскую карту";
+    public string GetInteractionPrompt() => LocalizationManager.GetInteractionPrompt(InteractionPromptType.MedicalRecord);
 
     public void Interact()
     {
         if (patient == null) return;
 
-        string patientInfo = $"Пациент: {patient.patientName}\nДиагноз: {patient.diagnosis}";
-        // Показываем анамнез
-        string anamnes = $"Анамнез:\n";
+        string patientInfo = $"РџР°С†РёРµРЅС‚: {patient.patientName}\nР”РёР°РіРЅРѕР·: {patient.diagnosis}";
+        
+        string anamnes = $"РђРЅР°РјРЅРµР·:\n";
         foreach (string line in patient.anamnesisLines)
         {
             anamnes += $"- {line}\n";

@@ -58,16 +58,27 @@
   },
   "UITexts": {
     "RewardScreenTitle": "Ödül Seç",
-    "SelectReward": "Seç",
+    "SelectReward": "Ödül Seç",
     "LoadingFloor": "Kat yükleniyor...",
-    "ReturningToMenu": "Menüye dönülüyor...",
-    "VictoryMessage": "🏆 TEBRİKLER! 🏆\n\nBaş Hekim Grustin'i ve tüm hastaneyi iyileştirdiniz!\nGülme gerçekten en iyi ilaçtır.\n\nOynadığınız için teşekkürler!",
+    "ReturningToMenu": "Menüye dön",
+    "VictoryMessage": "Zafer!",
     "StaircaseNotCured": [
-      "Yoldaş oyuncu, bu katta hala {count} üzgün hasta var.\nAşağıda, kapılar açık. Anlamıyorsun, bunların kapı olduğunu mu?\nEh, özür, daha net çizmek için zaman yoktu..."
+      "Tüm hastalar iyileşene kadar bir sonraki kata çıkılamaz. Kalan: {count}",
+      "Önce bu kattaki tüm hastaları iyileştirin. Kalan: {count}",
+      "Bir sonraki kat sadece tüm hastalar iyileştirildikten sonra kullanılabilir. Kalan: {count}"
     ],
     "StaircaseNotVisited": [
-      "Yoldaş oyuncu, bu katta henüz ziyaret etmediğiniz hastalar var.\nAşağıda, kapılar açık. Anlamıyorsun, Bunların kapı olduğunu mu?\nEh, Özür, daha net çizmek için zaman yoktu..."
-    ]
+      "Tüm odalar ziyaret edilene kadar bir sonraki kata çıkılamaz",
+      "Önce bu kattaki tüm odaları ziyaret edin",
+      "Bir sonraki kata çıkmadan önce tüm odaları ziyaret edin"
+    ],
+    "WardDoorPrompt": "Odaya gir",
+    "WardExitDoorPrompt": "Odadan çık",
+    "WardExitDoorCuredPrompt": "Odadan çık (hasta iyileşti!)",
+    "MedicalRecordPrompt": "Tıbbi kaydı oku",
+    "InfoDescPrompt": "Açıklamayı oku",
+    "StaircaseAvailablePrompt": "Merdiven çık",
+    "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)"
   },
   "DialogueTexts": {
     "DefaultGag": "Ee... gülsenize?",
