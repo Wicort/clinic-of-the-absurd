@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using UnityEngine;
 
 [Serializable]
@@ -7,19 +7,18 @@ public class GagCard
     public HumorType gagType;
     public int level = 1;
 
-    [Header("Баланс")]
+    [Header("Р‘РѕРЅСѓСЃС‹")]
     public float successChanceBonus = 0f; 
-    public float angerChanceReduction = 0f; 
-
-    // Визуал
+    public float angerChanceReduction = 0f;
+                                           
+    // Р“СЌРі
     public Sprite icon;
-    public string displayName => GagTypeNames[(int)gagType];
-
-    private static readonly string[] GagTypeNames = {
-        "Клоунский",
-        "Словесный",
-        "Абсурдист",
-        "Ироничный"
+    public string displayName => GagTypeNames[(int)gagType];                          
+    private static readonly string[] GagTypeNames = {                                        
+        "РљР»РѕСѓРЅСЃРєРёР№",
+        "РЎР»РѕРІРµСЃРЅС‹Р№",
+        "РђР±СЃСѓСЂРґРЅС‹Р№",
+        "РСЂРѕРЅРёС‡РЅС‹Р№"
     };
 
     public GagCard(HumorType type)
@@ -36,7 +35,7 @@ public class GagCard
 
     private void ApplyLevelEffects()
     {
-        successChanceBonus = (level - 1) * 0.1f;       // +10% за уровень
-        angerChanceReduction = (level - 1) * 0.05f;   // -5% за уровень
+        successChanceBonus = (level - 1) * 0.1f;       // +10% Рє С€Р°РЅСЃСѓ СѓСЃРїРµС…Р°                    
+        angerChanceReduction = (level - 1) * 0.05f;   // -5% Рє С€Р°РЅСЃСѓ РіРЅРµРІР°                  
     }
 }

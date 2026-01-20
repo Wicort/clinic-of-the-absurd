@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 
 public class RewardButton : MonoBehaviour
@@ -16,15 +16,15 @@ public class RewardButton : MonoBehaviour
 
         _nameText.text = new GagCard(type).displayName;
 
-        // Показать текущий уровень (если есть)
+        // РџРѕРєР°Р·С‹РІР°РµРј СѓСЂРѕРІРµРЅСЊ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµР№ РєР°СЂС‚С‹ (РµСЃР»Рё РµСЃС‚СЊ)
         GagCard existing = GagDeck.Instance.GetCardByType(type);
         if (existing != null)
         {
-            _levelText.text = $"Уровень: {existing.level + 1}"; // следующий
+            _levelText.text = $"РЈСЂРѕРІРµРЅСЊ: {existing.level + 1}"; // РЎР»РµРґСѓСЋС‰РёР№ СѓСЂРѕРІРµРЅСЊ
         }
         else
         {
-            _levelText.text = "Новый!";
+            _levelText.text = "РќРѕРІС‹Р№!";
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 613622689179008197}
   - component: {fileID: 8973055537305915556}
   - component: {fileID: 4885131294072002853}
+  - component: {fileID: 6300368276115002812}
   m_Layer: 0
   m_Name: RewardButton
   m_TagString: Untagged
@@ -150,6 +151,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardButton
   _nameText: {fileID: 4249365628616823446}
   _levelText: {fileID: 8443236462998260176}
+--- !u!114 &6300368276115002812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77545585294144800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9089f6dabe33cec449986dfcb522f352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardCardHoverAnimation
+  _pulseDuration: 0.2
+  _slowPulseDuration: 1
+  _rotationDuration: 0.3
+  _pulseEase: 4
+  _rotationEase: 27
+  _rotationAngle: 10
+  _isLeftCard: 0
 --- !u!1 &2581475901772978956
 GameObject:
   m_ObjectHideFlags: 0
