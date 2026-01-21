@@ -98,12 +98,76 @@
       "The higher the joke level, the greater the chance of success even with the wrong type."
     ],
     "Tutorial": [
-      "Hello, intern! You are our last hope in the fight against sadness!",
+      "Hello, intern! You are our last hope in fight against sadness!",
       "Patients here are treated in only one way - with laughter. Yes, seriously!",
-      "Go to any ward, open the card and find the key to this person's humor.",
+      "Go to any ward, open card and find the key to this person's humor.",
       "Choose the right gag - and the patient will recover! If you guess wrong - it will only get worse.",
       "You can make no more than 3 mistakes on each floor. Make a 4th mistake and you're fired, rookie!",
       "And now - forward! The hospital won't heal itself... although, who knows?"
+    ]
+  },
+  "PatientTexts": {
+    "PatientNames": [
+      "Anna Semenova",
+      "Vitya the Jumper",
+      "Leva the Cloud",
+      "Uncle Misha",
+      "Sonya the Nose",
+      "Arkady the Skeptic",
+      "Zinaida the Cosmos",
+      "Professor Bookworm",
+      "Vera the Realist",
+      "Boris the Somersault",
+      "Chief Doctor Grustin"
+    ],
+    "Diagnoses": [
+      "Pun Deficiency",
+      "Suppressed Need for Falls",
+      "Talking Teapot Syndrome",
+      "Acute \"Murzilka\" Deficiency",
+      "Stagnant Funny Faces",
+      "Cynical Apathy",
+      "Verbal Contact with the Moon",
+      "Pun Hypertrophy",
+      "Pessimistic Pragmatism",
+      "Suppressed Laughter Reflex on Falling",
+      "Absolute Aura of Seriousness (immune to single gags)"
+    ],
+    "Anamnesis": [
+      "Constantly asks: \"Have you heard the joke about the mother-in-law and the fridge?\"",
+      "Laughed yesterday at the \"Toilet\" sign on the dining room door.",
+      "Trying to figure out how to say \"bread\" in alien language.",
+      "Smiled when the nurse dropped a tray with plates.",
+      "Tried to repeat falling from a stool, but fell unsuccessfully.",
+      "Laughs when someone sneezes loudly.",
+      "Claims his slipper is a spy from the future.",
+      "Tried to feed a flower soup from the TV.",
+      "Says that clouds are cotton that gods forgot to clean up.",
+      "Quotes 90s commercials: \"Pelmeni - not life, but a song!\"",
+      "Trying to figure out how the word \"rainbow\" sounds backwards.",
+      "Laughs when you call a spoon \"a fork for soup\".",
+      "Makes faces looking at the washstand mirror.",
+      "Tried to portray a clown using cotton swabs.",
+      "Laughs when someone stumbles on the twelfth joint.",
+      "Refused medicine: \"If I get better, who will laugh at your salaries?\"",
+      "Said: \"A real hospital is IKEA without an exit\"",
+      "When offered a joke, replied: \"Yeah, really funny... like a salary\".",
+      "Says the moon is a light bulb someone forgot to turn off.",
+      "Tried to send a telegram to the past via microwave.",
+      "Claims her cat controls the weather by blinking.",
+      "Calls the first aid kit \"first aid for dummies\"",
+      "Tried to write a poem where every word starts with \"x\".",
+      "Laughs when you say \"hippopotamus\" instead of \"hippo\".",
+      "Said: \"Laughter is the best medicine? Then I want a prescription for 'hohotin'\"",
+      "When shown a balloon, asked: \"Does it heal too?\"",
+      "Refuses to believe that doctors are not actors.",
+      "Watches videos of people falling and giggles.",
+      "Tried to do salt on the bed, but got stuck in the curtain.",
+      "Says: \"The funniest thing is when someone trips over air\".",
+      "Hasn't laughed even once in 37 years.",
+      "His smile is when he raises his eyebrow by 0.1 mm.",
+      "Says: \"Laughter is a mistake of the nervous system\".",
+      "But... there's a plush cat in glasses in his office."
     ]
   }
 }

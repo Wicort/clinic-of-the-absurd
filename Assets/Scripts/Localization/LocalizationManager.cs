@@ -54,6 +54,13 @@ public enum InfoDescType
     Tutorial
 }
 
+public enum PatientDataType
+{
+    Name,
+    Diagnosis,
+    Anamnesis
+}
+
 public enum GagAnimationType
 {
     Verbal,
@@ -78,6 +85,9 @@ public class LanguageData
     
     [Header("Диалоги и сюжетные тексты")]
     public DialogueTexts DialogueTexts;
+    
+    [Header("Информация о пациентах")]
+    public PatientTexts PatientTexts;
 }
 
 [Serializable]
@@ -161,6 +171,19 @@ public class DialogueTexts
     
     [Header("Обучающий диалог InfoDesc")]
     public string[] Tutorial;
+}
+
+[Serializable]
+public class PatientTexts
+{
+    [Header("Имена пациентов")]
+    public string[] PatientNames;
+    
+    [Header("Диагнозы")]
+    public string[] Diagnoses;
+    
+    [Header("Анамнезы")]
+    public string[] Anamnesis;
 }
 
 public class LocalizationManager : MonoBehaviour
@@ -502,5 +525,45 @@ public class LocalizationManager : MonoBehaviour
             default:
                 return new[] { "Информация недоступна" };
         }
+    }
+    
+    public static string GetPatientName(string key)
+    {
+        if (CurrentLanguage?.PatientTexts == null) 
+        {
+            Debug.LogWarning("Тексты пациентов не загружены!");
+            return "Имя не найдено";
+        }
+        
+        // Ищем по ключу в массиве имен
+        // Для простоты используем индексацию по первым символам ключа
+        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.PatientNames.Length;
+        return CurrentLanguage.PatientTexts.PatientNames[index];
+    }
+    
+    public static string GetPatientDiagnosis(string key)
+    {
+        if (CurrentLanguage?.PatientTexts == null) 
+        {
+            Debug.LogWarning("Тексты пациентов не загружены!");
+            return "Диагноз не найден";
+        }
+        
+        // Ищем по ключу в массиве диагнозов
+        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.Diagnoses.Length;
+        return CurrentLanguage.PatientTexts.Diagnoses[index];
+    }
+    
+    public static string GetPatientAnamnesis(string key)
+    {
+        if (CurrentLanguage?.PatientTexts == null) 
+        {
+            Debug.LogWarning("Тексты пациентов не загружены!");
+            return "Анамнез не найден";
+        }
+        
+        // Ищем по ключу в массиве анамнезов
+        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.Anamnesis.Length;
+        return CurrentLanguage.PatientTexts.Anamnesis[index];
     }
 }
