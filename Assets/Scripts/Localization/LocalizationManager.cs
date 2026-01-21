@@ -49,6 +49,11 @@ public enum StaircaseTextType
     NotVisited
 }
 
+public enum InfoDescType
+{
+    Tutorial
+}
+
 public enum GagAnimationType
 {
     Verbal,
@@ -153,6 +158,9 @@ public class DialogueTexts
     
     [Header("Подсказки")]
     public string[] Hints;
+    
+    [Header("Обучающий диалог InfoDesc")]
+    public string[] Tutorial;
 }
 
 public class LocalizationManager : MonoBehaviour
@@ -476,6 +484,23 @@ public class LocalizationManager : MonoBehaviour
                 return CurrentLanguage.DialogueTexts.Hints;
             default:
                 return new[] { CurrentLanguage.DialogueTexts.DefaultGag };
+        }
+    }
+    
+    public static string[] GetInfoDescTexts(InfoDescType infoType)
+    {
+        if (CurrentLanguage?.DialogueTexts == null) 
+        {
+            Debug.LogWarning("Диалоговые тексты не загружены!");
+            return new[] { "Текст не найден" };
+        }
+        
+        switch (infoType)
+        {
+            case InfoDescType.Tutorial:
+                return CurrentLanguage.DialogueTexts.Tutorial ?? new[] { "Информация недоступна" };
+            default:
+                return new[] { "Информация недоступна" };
         }
     }
 }

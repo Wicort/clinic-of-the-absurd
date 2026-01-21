@@ -76,7 +76,7 @@
     "WardExitDoorPrompt": "Odadan çık",
     "WardExitDoorCuredPrompt": "Odadan çık (hasta iyileşti!)",
     "MedicalRecordPrompt": "Tıbbi kaydı oku",
-    "InfoDescPrompt": "Açıklamayı oku",
+    "InfoDescPrompt": "Bilgi al",
     "StaircaseAvailablePrompt": "Merdiven çık",
     "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)"
   },
@@ -96,6 +96,14 @@
       "Şaka seçmeden önce hastanın tıbbi kartını inceleyin.",
       "Bazı mizah türleri belirli hastalar için yasaklanabilir.",
       "Şaka seviyesi ne kadar yüksekse, yanlış türde bile başarı şansı o kadar artar."
+    ],
+    "Tutorial": [
+      "Merhaba, stajyer! Üzüntüyle mücadelede son umudumuzsun!",
+      "Buradaki hastalar sadece bir şekilde tedavi edilir - kahkaha ile. Evet, ciddiyim!",
+      "Herhangi bir odaya git, kartı aç ve bu kişinin mizah anahtarını bul.",
+      "Doğru şakayı seç - ve hasta iyileşecek! Yanlış tahmin edersen - sadece daha da kötüleşir.",
+      "Her katta en fazla 3 hata yapabilirsin. 4. hatayı yaparsan kovulursun, acemi!",
+      "Ve şimdi - ileri! Hastane kendini iyileştiremez... ama kim bilir?"
     ]
   }
 }

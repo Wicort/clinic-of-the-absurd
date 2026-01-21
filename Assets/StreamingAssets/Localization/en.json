@@ -76,7 +76,7 @@
     "WardExitDoorPrompt": "Exit ward",
     "WardExitDoorCuredPrompt": "Exit ward (patient cured!)",
     "MedicalRecordPrompt": "Read medical record",
-    "InfoDescPrompt": "Read description",
+    "InfoDescPrompt": "Get information",
     "StaircaseAvailablePrompt": "Go up stairs",
     "StaircaseBlockedPrompt": "Go up stairs (unavailable)"
   },
@@ -96,6 +96,14 @@
       "Study the patient's medical card before choosing a joke.",
       "Some types of humor may be forbidden for certain patients.",
       "The higher the joke level, the greater the chance of success even with the wrong type."
+    ],
+    "Tutorial": [
+      "Hello, intern! You are our last hope in the fight against sadness!",
+      "Patients here are treated in only one way - with laughter. Yes, seriously!",
+      "Go to any ward, open the card and find the key to this person's humor.",
+      "Choose the right gag - and the patient will recover! If you guess wrong - it will only get worse.",
+      "You can make no more than 3 mistakes on each floor. Make a 4th mistake and you're fired, rookie!",
+      "And now - forward! The hospital won't heal itself... although, who knows?"
     ]
   }
 }

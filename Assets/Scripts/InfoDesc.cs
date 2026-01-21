@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class InfoDesc : MonoBehaviour, IInteractive
 {
-    [SerializeField] private string[] _dialogueLines;
-    [SerializeField] private string _prompt = "��������� ����������";
+    [SerializeField] private InfoDescType _infoType = InfoDescType.Tutorial;
+    [SerializeField] private string _prompt = "Получить информацию";
 
     public string GetInteractionPrompt() => LocalizationManager.GetInteractionPrompt(InteractionPromptType.InfoDesc);
 
@@ -12,7 +12,8 @@ public class InfoDesc : MonoBehaviour, IInteractive
     {
         if (DialogueBoxUI.Instance != null)
         {
-            DialogueBoxUI.Instance.ShowDialogueSequence(_dialogueLines);
+            string[] localizedDialogue = LocalizationManager.GetInfoDescTexts(_infoType);
+            DialogueBoxUI.Instance.ShowDialogueSequence(localizedDialogue);
         }
         else
         {
