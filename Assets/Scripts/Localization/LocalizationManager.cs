@@ -197,6 +197,11 @@ public class LocalizationManager : MonoBehaviour
     private static Dictionary<string, LanguageData> _loadedLanguages = new Dictionary<string, LanguageData>();
     private static string _currentLanguageCode = "ru"; // Временно, изменится после загрузки
     
+    // Словари для точного сопоставления ключей пациентов
+    private static Dictionary<string, int> patientNameKeyToIndex = new Dictionary<string, int>();
+    private static Dictionary<string, int> diagnosisKeyToIndex = new Dictionary<string, int>();
+    private static Dictionary<string, int> anamnesisKeyToIndex = new Dictionary<string, int>();
+    
     public static string CurrentLanguageCode => _currentLanguageCode;
     public static string CurrentLanguageName => _loadedLanguages.ContainsKey(_currentLanguageCode) ? 
         _loadedLanguages[_currentLanguageCode].LanguageName : "Русский";
@@ -277,7 +282,81 @@ public class LocalizationManager : MonoBehaviour
                 _currentLanguageCode = "en";
             }
             Debug.Log($"Установлен язык по умолчанию: {CurrentLanguageName} ({CurrentLanguageCode})");
+            
+            // Инициализируем сопоставления ключей пациентов
+            InitializePatientKeyMappings();
         }
+    }
+    
+    private void InitializePatientKeyMappings()
+    {
+        patientNameKeyToIndex.Clear();
+        diagnosisKeyToIndex.Clear();
+        anamnesisKeyToIndex.Clear();
+        
+        // Имена пациентов (соответствуют ключам из ассетов)
+        patientNameKeyToIndex["patient_name_0"] = 0;  // Анна Семёновна
+        patientNameKeyToIndex["patient_name_1"] = 1;  // Аркадий Скептик
+        patientNameKeyToIndex["patient_name_2"] = 2;  // Борис-Кувырок
+        patientNameKeyToIndex["patient_name_3"] = 3;  // Вера Реалист
+        patientNameKeyToIndex["patient_name_4"] = 4;  // Витя-Прыгун
+        patientNameKeyToIndex["patient_name_5"] = 5;  // Главврач Грустин
+        patientNameKeyToIndex["patient_name_6"] = 6;  // Дядя Миша
+        patientNameKeyToIndex["patient_name_7"] = 7;  // Зинаида-Космос
+        patientNameKeyToIndex["patient_name_8"] = 8;  // Лёва Облачко
+        patientNameKeyToIndex["patient_name_9"] = 9;  // Профессор Буквоед
+        patientNameKeyToIndex["patient_name_10"] = 10; // Соня-Нос
+        
+        // Диагнозы (соответствуют ключам из ассетов)
+        diagnosisKeyToIndex["diagnosis_0"] = 0;   // Абсолютная аура серьёзности
+        diagnosisKeyToIndex["diagnosis_1"] = 1;   // Вербальный контакт с луной
+        diagnosisKeyToIndex["diagnosis_2"] = 2;   // Гипертрофия каламбуров
+        diagnosisKeyToIndex["diagnosis_3"] = 3;   // Застой веселых рожиц
+        diagnosisKeyToIndex["diagnosis_4"] = 4;   // Недостаток каламбуров
+        diagnosisKeyToIndex["diagnosis_5"] = 5;   // Острая нехватка «мурзилок»
+        diagnosisKeyToIndex["diagnosis_6"] = 6;   // Пессимистический прагматизм
+        diagnosisKeyToIndex["diagnosis_7"] = 7;   // Подавленная потребность в падениях
+        diagnosisKeyToIndex["diagnosis_8"] = 8;   // Подавленный рефлекс смеха при падении
+        diagnosisKeyToIndex["diagnosis_9"] = 9;   // Синдром говорящего чайника
+        diagnosisKeyToIndex["diagnosis_10"] = 10; // Циничная апатия
+        
+        // Анамнезы (соответствуют ключам из ассетов)
+        anamnesisKeyToIndex["anamnesis_0"] = 0;   // Анна смеялась над туалетом
+        anamnesisKeyToIndex["anamnesis_1"] = 1;   // Анна лампочка
+        anamnesisKeyToIndex["anamnesis_2"] = 2;   // Анна хлеб инопланетянам
+        anamnesisKeyToIndex["anamnesis_3"] = 3;   // Вера падение с табурета
+        anamnesisKeyToIndex["anamnesis_4"] = 4;   // Вера чихание
+        anamnesisKeyToIndex["anamnesis_5"] = 5;   // Витя падение с подноса
+        anamnesisKeyToIndex["anamnesis_6"] = 6;   // Витя падение с табурета
+        anamnesisKeyToIndex["anamnesis_7"] = 7;   // Витя чихание
+        anamnesisKeyToIndex["anamnesis_8"] = 8;   // Главврач 37 лет
+        anamnesisKeyToIndex["anamnesis_9"] = 9;   // Главврач плюшевый кот
+        anamnesisKeyToIndex["anamnesis_10"] = 10; // Дядя Миша зарплаты
+        anamnesisKeyToIndex["anamnesis_11"] = 11; // Дядя Миша актеры
+        anamnesisKeyToIndex["anamnesis_12"] = 12; // Зинаида зеркало
+        anamnesisKeyToIndex["anamnesis_13"] = 13; // Зинаида клоун ватные палочки
+        anamnesisKeyToIndex["anamnesis_14"] = 14; // Зинаида микроволновка
+        anamnesisKeyToIndex["anamnesis_15"] = 15; // Аркадий отказ от лекарств
+        anamnesisKeyToIndex["anamnesis_16"] = 16; // Аркадий ИКЕА
+        anamnesisKeyToIndex["anamnesis_17"] = 17; // Аркадий зарплата
+        anamnesisKeyToIndex["anamnesis_18"] = 18; // Зинаида луна
+        anamnesisKeyToIndex["anamnesis_19"] = 19; // Зинаида телеграмма
+        anamnesisKeyToIndex["anamnesis_20"] = 20; // Зинаида кот погода
+        anamnesisKeyToIndex["anamnesis_21"] = 21; // Профессор аптечка
+        anamnesisKeyToIndex["anamnesis_22"] = 22; // Профессор стихи
+        anamnesisKeyToIndex["anamnesis_23"] = 23; // Профессор бегемот
+        anamnesisKeyToIndex["anamnesis_24"] = 24; // Вера рецепт
+        anamnesisKeyToIndex["anamnesis_25"] = 25; // Вера шарик
+        anamnesisKeyToIndex["anamnesis_26"] = 26; // Вера врачи актеры
+        anamnesisKeyToIndex["anamnesis_27"] = 27; // Борис видео с падениями
+        anamnesisKeyToIndex["anamnesis_28"] = 28; // Борис сальто кровать
+        anamnesisKeyToIndex["anamnesis_29"] = 29; // Борис спотыкание о воздух
+        anamnesisKeyToIndex["anamnesis_30"] = 30; // Лёва шпион тапок
+        anamnesisKeyToIndex["anamnesis_31"] = 31; // Лёва кот погода
+        anamnesisKeyToIndex["anamnesis_32"] = 32; // Соня зеркало
+        anamnesisKeyToIndex["anamnesis_33"] = 33; // Соня нервная система
+        
+        Debug.Log("Patient key mappings initialized!");
     }
     
     public static void SetLanguage(string languageCode)
@@ -535,10 +614,17 @@ public class LocalizationManager : MonoBehaviour
             return "Имя не найдено";
         }
         
-        // Ищем по ключу в массиве имен
-        // Для простоты используем индексацию по первым символам ключа
-        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.PatientNames.Length;
-        return CurrentLanguage.PatientTexts.PatientNames[index];
+        // Используем точное сопоставление ключей
+        if (patientNameKeyToIndex.TryGetValue(key, out int index))
+        {
+            if (index >= 0 && index < CurrentLanguage.PatientTexts.PatientNames.Length)
+            {
+                return CurrentLanguage.PatientTexts.PatientNames[index];
+            }
+        }
+        
+        Debug.LogWarning($"Ключ имени пациента не найден: {key}");
+        return "Имя не найдено";
     }
     
     public static string GetPatientDiagnosis(string key)
@@ -549,9 +635,17 @@ public class LocalizationManager : MonoBehaviour
             return "Диагноз не найден";
         }
         
-        // Ищем по ключу в массиве диагнозов
-        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.Diagnoses.Length;
-        return CurrentLanguage.PatientTexts.Diagnoses[index];
+        // Используем точное сопоставление ключей
+        if (diagnosisKeyToIndex.TryGetValue(key, out int index))
+        {
+            if (index >= 0 && index < CurrentLanguage.PatientTexts.Diagnoses.Length)
+            {
+                return CurrentLanguage.PatientTexts.Diagnoses[index];
+            }
+        }
+        
+        Debug.LogWarning($"Ключ диагноза не найден: {key}");
+        return "Диагноз не найден";
     }
     
     public static string GetPatientAnamnesis(string key)
@@ -562,8 +656,16 @@ public class LocalizationManager : MonoBehaviour
             return "Анамнез не найден";
         }
         
-        // Ищем по ключу в массиве анамнезов
-        int index = Mathf.Abs(key.GetHashCode()) % CurrentLanguage.PatientTexts.Anamnesis.Length;
-        return CurrentLanguage.PatientTexts.Anamnesis[index];
+        // Используем точное сопоставление ключей
+        if (anamnesisKeyToIndex.TryGetValue(key, out int index))
+        {
+            if (index >= 0 && index < CurrentLanguage.PatientTexts.Anamnesis.Length)
+            {
+                return CurrentLanguage.PatientTexts.Anamnesis[index];
+            }
+        }
+        
+        Debug.LogWarning($"Ключ анамнеза не найден: {key}");
+        return "Анамнез не найден";
     }
 }

@@ -30,7 +30,7 @@ public class WardRoom : MonoBehaviour
         _isPatientCured = isCured;
 
         if (_patientNameText != null)
-            _patientNameText.text = patient.patientName;
+            _patientNameText.text = patient.GetLocalizedName();
 
         if (_patientVisual != null)
             _patientVisual.SetActive(!_isPatientCured);

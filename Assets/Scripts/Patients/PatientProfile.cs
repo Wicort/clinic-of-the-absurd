@@ -32,17 +32,17 @@ public class PatientProfile : ScriptableObject
     public string GetLocalizedName()
     {
         if (!string.IsNullOrEmpty(patientNameKey))
-            return patientName; // Возвращаем жестко закодированное имя если ключ не задан
+            return LocalizationManager.GetPatientName(patientNameKey) ?? patientName;
             
-        return LocalizationManager.GetPatientName(patientNameKey) ?? patientName;
+        return patientName; // Возвращаем жестко закодированное имя если ключ не задан
     }
     
     public string GetLocalizedDiagnosis()
     {
         if (!string.IsNullOrEmpty(diagnosisKey))
-            return diagnosis; // Возвращаем жестко закодированный диагноз если ключ не задан
+            return LocalizationManager.GetPatientDiagnosis(diagnosisKey) ?? diagnosis;
             
-        return LocalizationManager.GetPatientDiagnosis(diagnosisKey) ?? diagnosis;
+        return diagnosis; // Возвращаем жестко закодированный диагноз если ключ не задан
     }
     
     public string[] GetLocalizedAnamnesis()

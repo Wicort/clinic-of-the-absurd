@@ -1,173 +1,173 @@
 {
-  "LanguageName": "Türkçe",
-  "LanguageCode": "tr",
-  "GagTexts": {
-    "Clownish": [
-      "Neden temas temas sirk yok? Havadaki jimnastiklarla oynayıp akrobatları besleyebilirsiniz?",
-      "Palyaço neden saatini pencereden attı? Zamanın nasıl uçtuğunu görmek istedi!",
-      "Deneyimli bir palyaço çağrıda çocukları eğlendirir, yalnız anneleri hayal kırışmaz..."
-    ],
-    "Verbal": [
-      "Neden kız arkadaşımı cilt bakım ürünü verdiğimde gitmiyor?",
-      "Turistlerin aslan payı safari olayı nedeniyle eve dönmedi.",
-      "- Karaciğerini satan kişiye ne denir?\n- Zengin."
-    ],
-    "Absurdist": [
-      "Dün terliğim süpürge ile evlilik için başvuru yaptı.\n'Beni emen tek o' dedi.",
-      "Neden çoraplar her zaman çamaşır makinesinde kaybolur?\nÇünkü başka boyutta arıyorlar!",
-      "Sandviçim tereyağı aşağı düştü.\nBu bir yerçekimi komplosuydu!"
-    ],
-    "Ironic": [
-      "- Bana köpüklü kahve yapması zor olur mu?\n- Kolaydı.",
-      "Rostov'da olay. Bir tetikçinin hapşırması, polis hala şavurma satıcısını kim sipariş edebileceğini kafasını yırtıyor...",
-      "Aile haberleri. Tolik oğlunun adını Euro koydu. Daha hızlı büyüyeceğini umuyor..."
-    ],
-    "VerbalGag": [
-      "Neden mantar okula gitmez? Onu *büyüteceklerini* bekliyorlar!",
-      "— Doktor, kendimi bir köpek gibi hissediyorum!\n— Kaç yaşındasın?\n— Üç ay.",
-      "En iyi ilaç, sana fatura kesmemektir!"
-    ],
-    "IronicGag": [
-      "Oh, kesinlikle iyileşeceksin... tıpkı prim şanslarım gibi.",
-      "Gülme en iyi ilaçsa, 'kahkaha' reçetem nerede?",
-      "Sağlısın!.. Şaka yapıyorum. Ama komik olurdu, değil mi?"
-    ]
-  },
-  "PatientReactions": {
-    "Angry": [
-      "Bana başka bir doktor verin, bu bir çeşit aptal!",
-      "Beni incitiyorsunuz!",
-      "Sizi komisyona şikayet edeceğim!"
-    ],
-    "Happy": [
-      "Doktor, teşekkürler, sağlıyım!",
-      "Ha-ha! Hemen daha iyi hissediyorum!",
-      "Bir dahi'siniz! İyileşiyorum!"
-    ],
-    "Neutral": [
-      "Doktor, bu şimdi neydi?",
-      "Eh... komik değil.",
-      "Şakanın ne olduğunu anlamadım?"
-    ],
-    "BossContinue": [
-      "Hmm... İlginç. Devam edin."
-    ],
-    "BossFail": [
-      "Böyle bir şaka daha olursa ve kovulursunuz!"
-    ]
-  },
-  "UITexts": {
-    "RewardScreenTitle": "Ödül Seç",
-    "SelectReward": "Ödül Seç",
-    "LoadingFloor": "Kat yükleniyor...",
-    "ReturningToMenu": "Menüye dön",
-    "VictoryMessage": "Zafer!",
-    "StaircaseNotCured": [
-      "Tüm hastalar iyileşene kadar bir sonraki kata çıkılamaz. Kalan: {count}",
-      "Önce bu kattaki tüm hastaları iyileştirin. Kalan: {count}",
-      "Bir sonraki kat sadece tüm hastalar iyileştirildikten sonra kullanılabilir. Kalan: {count}"
-    ],
-    "StaircaseNotVisited": [
-      "Tüm odalar ziyaret edilene kadar bir sonraki kata çıkılamaz",
-      "Önce bu kattaki tüm odaları ziyaret edin",
-      "Bir sonraki kata çıkmadan önce tüm odaları ziyaret edin"
-    ],
-    "WardDoorPrompt": "Odaya gir",
-    "WardExitDoorPrompt": "Odadan çık",
-    "WardExitDoorCuredPrompt": "Odadan çık (hasta iyileşti!)",
-    "MedicalRecordPrompt": "Tıbbi kaydı oku",
-    "InfoDescPrompt": "Bilgi al",
-    "StaircaseAvailablePrompt": "Merdiven çık",
-    "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)"
-  },
-  "DialogueTexts": {
-    "DefaultGag": "Ee... gülsenize?",
-    "BatmanIntro": [
-      "Kliniğimize hoş geldiniz, doktor! Hastalar yardımınızı bekliyor.",
-      "Unutmayın: gülme en iyi ilaçtır. Ama tüm şakalar tüm hastalara uymaz.",
-      "İyi şanslar, doktor! Hastane sizin ellerinizde."
-    ],
-    "BatmanOutro": [
-      "Mükemmel iş, doktor! Başardınız!",
-      "Hastalar sizin sayenizde iyileşti.",
-      "Yardımınız için teşekkürler!"
-    ],
-    "Hints": [
-      "Şaka seçmeden önce hastanın tıbbi kartını inceleyin.",
-      "Bazı mizah türleri belirli hastalar için yasaklanabilir.",
-      "Şaka seviyesi ne kadar yüksekse, yanlış türde bile başarı şansı o kadar artar."
-    ],
-    "Tutorial": [
-      "Merhaba, stajyer! Üzüntüyle mücadelede son umudumuzsun!",
-      "Buradaki hastalar sadece bir şekilde tedavi edilir - kahkaha ile. Evet, ciddiyim!",
-      "Herhangi bir odaya git, kartı aç ve bu kişinin mizah anahtarını bul.",
-      "Doğru şakayı seç - ve hasta iyileşecek! Yanlış tahmin edersen - sadece daha da kötüleşir.",
-      "Her katta en fazla 3 hata yapabilirsin. 4. hatayı yaparsan kovulursun, acemi!",
-      "Ve şimdi - ileri! Hastane kendini iyileştiremez... ama kim bilir?"
-    ]
-  },
-  "PatientTexts": {
-    "PatientNames": [
-      "Anna Semyonova",
-      "Vitya-Zıplayıcı",
-      "Leva Bulut",
-      "Misha Amca",
-      "Sonya-Burun",
-      "Arkady Şüpheci",
-      "Zinaida-Kozmos",
-      "Profesör Kitapkurdu",
-      "Vera Gerçekçi",
-      "Boris Takla",
-      "Başhekim Grustin"
-    ],
-    "Diagnoses": [
-      "Kelime Eksikliği",
-      "Düşme Baskısı Altında",
-      "Konuşan Çaydanlık Sendromu",
-      "Akut \"Murzilka\" Eksikliği",
-      "Durgun Esnek Yüzler",
-      "Sinik Apati",
-      "Ay ile Sözel İletişim",
-      "Kelame Hipertrofisi",
-      "Kötümser Pragmatizm",
-      "Düşerken Baskılanmış Kahkaha Refleksi",
-      "Mutlak Ciddiyet Halesi (tekli şakalara bağışıklık)"
-    ],
-    "Anamnesis": [
-      "Sürekli sorar: \"Kaynana ve buzdolabı şakasını duydunuz mu?\"",
-      "Dün yemekhane kapısındaki \"Tuvalet\" yazısına güldü.",
-      "\"Ekmek\" kelimesini uzaylı dilinde nasıl söyleyeceğini düşünmeye çalışıyor.",
-      "Hemşire tepsideki tabakları düşürdüğünde gülümsedi.",
-      "Tabureden düşmeyi tekrarlamaya çalıştı ama başarısız oldu.",
-      "Biri yüksek sesle hapşırdığında güler.",
-      "Terliğinin gelecekten casus olduğunu iddia ediyor.",
-      "Çiçeği TV'den çorba ile beslemeye çalıştı.",
-      "Bulutların tanrıların temizlemeyi unuttuğu pamuk olduğunu söylüyor.",
-      "90'lar reklamlarını alıntılıyor: \"Pelmeni - hayat değil, şarkı!\"",
-      "\"Gökkuşağı\" kelimesinin tersten nasıl duyulduğunu anlamaya çalışıyor.",
-      "Kaşığı \"çorba için çatal\" olarak adlandırdığınızda güler.",
-      "Lavabo aynasına bakarak yüzler yapıyor.",
-      "Pamuklu çubuklar kullanarak palyaço canlandırmaya çalıştı.",
-      "Biri on ikinci eklemine takıldığında güler.",
-      "İlacı reddetti: \"Eğer iyileşirsem, maaşlarınızla kim gülecek?\"",
-      "Dedi ki: \"Gerçek hastane IKEA'dan çıkmayan yerdir\"",
-      "Şaka teklif edildiğinde, cevap verdi: \"Evet, gerçekten komik... maaş gibi\".",
-      "Ayın unutulmuş bir ampul olduğunu söylüyor.",
-      "Mikrodalgada geçmişe telgraf göndermeye çalıştı.",
-      "Kedisinin göz kırparak hava durumunu kontrol ettiğini iddia ediyor.",
-      "İlk yardım çantasını \"acemi için ilk yardım\" olarak adlandırıyor.",
-      "Her kelimenin \"x\" ile başladığı bir şiir yazmaya çalıştı.",
-      "\"Hipopotam\" yerine \"su aygırı\" dediğinizde güler.",
-      "Dedi ki: \"Kahkaha en iyi ilaç mı? O zaman bana 'hohotin' reçetesi istiyorum\"",
-      "Bir balon gösterildiğinde sordu: \"O da iyileştirir mi?\"",
-      "Doktorların aktör olmadığına inanmayı reddediyor.",
-      "Düşen insanların videolarını izliyor ve kıkırıyor.",
-      "Yatakta tuz yapmaya çalıştı ama perdeye sıkıştı.",
-      "Söylüyor: \"En komik şey birinin havaya takılmasıdır.\"",
-      "37 yılda bir kez bile gülmedi.",
-      "Gülümsemesi, kaşını 0.1 mm kaldırdığı zamandır.",
-      "Söylüyor: \"Kahkaha, sinir sisteminin bir hatasıdır\".",
-      "Ama... ofisinde gözlüklü peluş bir kedi var."
-    ]
-  }
+    "LanguageName": "Türkçe",
+    "LanguageCode": "tr",
+    "GagTexts": {
+        "Clownish": [
+            "Neden temas temas sirk yok? Havadaki jimnastiklarla oynayıp akrobatları besleyebilirsiniz?",
+            "Palyaço neden saatini pencereden attı? Zamanın nasıl uçtuğunu görmek istedi!",
+            "Deneyimli bir palyaço çağrıda çocukları eğlendirir, yalnız anneleri hayal kırmaz..."
+        ],
+        "Verbal": [
+            "Neden kız arkadaşımı cilt bakım ürünü verdiğimde gitmiyor?",
+            "Turistlerin aslan payı safari olayı nedeniyle eve dönmedi.",
+            "- Karaciğerini satan kişiye ne denir?\n- Zengin."
+        ],
+        "Absurdist": [
+            "Dün terliğim süpürge ile evlilik için başvuru yaptı.\n'Beni emen tek o' dedi.",
+            "Neden çoraplar her zaman çamaşır makinesinde kaybolur?\nÇünkü başka boyutta arıyorlar!",
+            "Sandviçim tereyağı aşağı düştü.\nBu bir yerçekimi komplosuydu!"
+        ],
+        "Ironic": [
+            "- Bana köpüklü kahve yapması zor olur mu?\n- Kolaydı.",
+            "Rostov'da olay. Bir tetikçinin hapşırması, polis hala şavurma satıcısını kim sipariş edebileceğini kafasını yırtıyor...",
+            "Aile haberleri. Tolik oğlunun adını Euro koydu. Daha hızlı büyüyeceğini umuyor..."
+        ],
+        "VerbalGag": [
+            "Neden mantar okula gitmez? Onu *büyüteceklerini* bekliyorlar!",
+            "— Doktor, kendimi bir köpek gibi hissediyorum!\n— Kaç yaşındasın?\n— Üç ay.",
+            "En iyi ilaç, sana fatura kesmemektir!"
+        ],
+        "IronicGag": [
+            "Oh, kesinlikle iyileşeceksiniz... tıpkı prim şanslarım gibi.",
+            "Gülme en iyi ilaçsa, 'kahkaha' reçetem nerede?",
+            "Sağlısınız!.. Şaka yapıyorum. Ama komik olurdu, değil mi?"
+        ]
+    },
+    "PatientReactions": {
+        "Angry": [
+            "Bana başka bir doktor verin, bu bir çeşit aptal!",
+            "Beni incitiyorsunuz!",
+            "Sizi komisyona şikayet edeceğim!"
+        ],
+        "Happy": [
+            "Doktor, teşekkürler, sağlıyım!",
+            "Ha-ha! Hemen daha iyi hissediyorum!",
+            "Bir dahi'siniz! İyileşiyorum!"
+        ],
+        "Neutral": [
+            "Doktor, bu şimdi neydi?",
+            "Eh... komik değil.",
+            "Şakanın ne olduğunu anlamadım?"
+        ],
+        "BossContinue": [
+            "Hmm... İlginç. Devam edin."
+        ],
+        "BossFail": [
+            "Böyle bir şaka daha olursa ve kovulursunuz!"
+        ]
+    },
+    "UITexts": {
+        "RewardScreenTitle": "Ödül Seç",
+        "SelectReward": "Ödül Seç",
+        "LoadingFloor": "Kat yükleniyor...",
+        "ReturningToMenu": "Menüye dön",
+        "VictoryMessage": "Zafer!",
+        "StaircaseNotCured": [
+            "Tüm hastalar iyileşene kadar bir sonraki kata çıkılamaz. Kalan: {count}",
+            "Önce bu kattaki tüm hastaları iyileştirin. Kalan: {count}",
+            "Bir sonraki kat sadece tüm hastalar iyileştirildikten sonra kullanılabilir. Kalan: {count}"
+        ],
+        "StaircaseNotVisited": [
+            "Tüm odalar ziyaret edilene kadar bir sonraki kata çıkılamaz",
+            "Önce bu kattaki tüm odaları ziyaret edin",
+            "Bir sonraki kata çıkmadan önce tüm odaları ziyaret edin"
+        ],
+        "WardDoorPrompt": "Odaya gir",
+        "WardExitDoorPrompt": "Odadan çık",
+        "WardExitDoorCuredPrompt": "Odadan çık (hasta iyileşti!)",
+        "MedicalRecordPrompt": "Tıbbi kaydı oku",
+        "InfoDescPrompt": "Bilgi al",
+        "StaircaseAvailablePrompt": "Merdiven çık",
+        "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)"
+    },
+    "DialogueTexts": {
+        "DefaultGag": "Ee... gülsenize?",
+        "BatmanIntro": [
+            "Kliniğimize hoş geldiniz, doktor! Hastalar yardımınızı bekliyor.",
+            "Unutmayın: gülme en iyi ilaçtır. Ama tüm şakalar tüm hastalara uymaz.",
+            "İyi şanslar, doktor! Hastane sizin ellerinizde."
+        ],
+        "BatmanOutro": [
+            "Mükemmel iş, doktor! Başardınız!",
+            "Hastalar sizin sayenizde iyileşti.",
+            "Yardımınız için teşekkürler!"
+        ],
+        "Hints": [
+            "Şaka seçmeden önce hastanın tıbbi kartını inceleyin.",
+            "Bazı mizah türleri belirli hastalar için yasaklanabilir.",
+            "Şaka seviyesi ne kadar yüksekse, yanlış türde bile başarı şansı o kadar artar."
+        ],
+        "Tutorial": [
+            "Merhaba, stajyer! Üzüntüyle mücadelede son umudumuzsun!",
+            "Buradaki hastalar sadece bir şekilde tedavi edilir - kahkaha ile. Evet, ciddiyim!",
+            "Herhangi bir odaya git, kartı aç ve bu kişinin mizah anahtarını bul.",
+            "Doğru şakayı seç - ve hasta iyileşecek! Yanlış tahmin edersen - sadece daha da kötüleşir.",
+            "Her katta en fazla 3 hata yapabilirsin. 4. hatayı yaparsan kovulursun, acemi!",
+            "Ve şimdi - ileri! Hastane kendini iyileştiremez... ama kim bilir?"
+        ]
+    },
+    "PatientTexts": {
+        "PatientNames": [
+            "Anna Semyonova",
+            "Arkady Şüpheci",
+            "Boris Takla",
+            "Vera Gerçekçi",
+            "Vitya Zıplayıcı",
+            "Başhekim Grustin",
+            "Misha Amca",
+            "Zinaida Kozmos",
+            "Leva Bulut",
+            "Profesör Kitapkurdu",
+            "Sonya Burun"
+        ],
+        "Diagnoses": [
+            "Mutlak Ciddiyet Halesi (tekli şakalara bağışıklık)",
+            "Ay ile Sözel İletişim",
+            "Kelame Hipertrofisi",
+            "Durgun Esnek Yüzler",
+            "Kelame Eksikliği",
+            "Akut \"Murzilka\" Eksikliği",
+            "Kötümser Pragmatizm",
+            "Baskılanmış Düşme İhtiyacı",
+            "Düşerken Baskılanmış Kahkaha Refleksi",
+            "Konuşan Çaydanlık Sendromu",
+            "Sinik Apati"
+        ],
+        "Anamnesis": [
+            "Dün yemek odası kapısındaki 'Tuvalet' yazısına güldü.",
+            "Ayın birinin unutup kapatmadığı bir ampul olduğunu söylüyor.",
+            "Bulutların tanrıların temizlemeyi unuttuğu pamuk olduğunu söylüyor.",
+            "En komik şeyin birinin havaya takılıp düşmesi olduğunu söylüyor.",
+            "Gülmenin sinir sisteminin bir hata olduğunu söylüyor.",
+            "Lavabo aynasına bakarak yüzler yapıyor.",
+            "Gülümsemesi, kaşını 0.1 mm kaldırdığı zamandır.",
+            "Bir balon gösterildiğinde sordu: O da mı iyileştirir?",
+            "Bir şaka teklif edildiğinde cevapladı: Evet, gerçekten çok komik... maaşım gibi.",
+            "İlk yardım çantasını 'çaylar için ilk yardım' olarak adlandırıyor",
+            "37 yıl boyunca hiç gülmedi.",
+            "Ama... ofisinde gözlüklü bir peluş kedi var.",
+            "İlaçları reddetti: Eğer iyileşirsem, maaşlarınıza kim gülecek?",
+            "Doktorların oyuncu olmadığına inanmayı reddediyor.",
+            "Sürekli soruyor: Kayınvalidesi ve buzdolabı şakasını duydunuz mu?",
+            "Pamuklu çubuklarla palyaço canlandırmaya çalıştı.",
+            "Mikrodalgadan geçmişe telgraf göndermeye çalıştı.",
+            "Ekmek kelimesini uzaylı dilinde nasıl söyleyeceğini düşünmeye çalıştı.",
+            "Televizyondan bir çiçeği çorba ile beslemeye çalıştı.",
+            "Her kelimenin X ile başladığı bir şiir yazmaya çalıştı.",
+            "Bir tabureden düşmeyi tekrarlamaya çalıştı, ama başarısız düştü.",
+            "GÖK-KUŞAK kelimesinin tersten nasıl duyulduğunu düşünmeye çalıştı.",
+            "Yatakta takla atmaya çalıştı, ama perdeye takıldı.",
+            "Gerçek hastanenin çıkışı olmayan IKEA olduğunu söyledi",
+            "Gülme en iyi ilaç mı? O zaman bana Kahkaha reçetesi istiyorum dedi",
+            "Hipopotam yerine Suaygırı dediğinizde güler.",
+            "Birisi kapı çerçevesine takıldığında güler.",
+            "Birisi yüksek sesle hapşırdığında güler.",
+            "Bir kaşığa 'çorba için çatal' dediğinizde güler.",
+            "Düşen insanların videolarını izler ve kıkırdar.",
+            "Hemşire tabaklarla tepsiyi düşürdüğünde gülümsedi.",
+            "Terliğinin gelecekten bir casus olduğunu iddia ediyor.",
+            "Kedisinin göz kıparak hava durumunu kontrol ettiğini iddia ediyor.",
+            "90'lar reklamlarını alıntılar: Pelmeni - hayat değil, şarkı!"
+        ]
+    }
 }

@@ -16,10 +16,11 @@ public class MedicalRecord : MonoBehaviour, IInteractive
     {
         if (patient == null) return;
 
-        string patientInfo = $"Пациент: {patient.patientName}\nДиагноз: {patient.diagnosis}";
+        string patientInfo = $"Пациент: {patient.GetLocalizedName()}\nДиагноз: {patient.GetLocalizedDiagnosis()}";
         
         string anamnes = $"Анамнез:\n";
-        foreach (string line in patient.anamnesisLines)
+        string[] localizedAnamnesis = patient.GetLocalizedAnamnesis();
+        foreach (string line in localizedAnamnesis)
         {
             anamnes += $"- {line}\n";
         }
