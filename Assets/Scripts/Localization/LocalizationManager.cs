@@ -153,6 +153,11 @@ public class UITexts
     public string InfoDescPrompt;
     public string StaircaseAvailablePrompt;
     public string StaircaseBlockedPrompt;
+    
+    [Header("Медицинская карта")]
+    public string MedicalRecordPatient;
+    public string MedicalRecordDiagnosis;
+    public string MedicalRecordAnamnesis;
 }
 
 [Serializable]
@@ -667,5 +672,38 @@ public class LocalizationManager : MonoBehaviour
         
         Debug.LogWarning($"Ключ анамнеза не найден: {key}");
         return "Анамнез не найден";
+    }
+    
+    public static string GetMedicalRecordPatient()
+    {
+        if (CurrentLanguage?.UITexts == null) 
+        {
+            Debug.LogWarning("UI тексты не загружены!");
+            return "Пациент:";
+        }
+        
+        return CurrentLanguage.UITexts.MedicalRecordPatient ?? "Пациент:";
+    }
+    
+    public static string GetMedicalRecordDiagnosis()
+    {
+        if (CurrentLanguage?.UITexts == null) 
+        {
+            Debug.LogWarning("UI тексты не загружены!");
+            return "Диагноз:";
+        }
+        
+        return CurrentLanguage.UITexts.MedicalRecordDiagnosis ?? "Диагноз:";
+    }
+    
+    public static string GetMedicalRecordAnamnesis()
+    {
+        if (CurrentLanguage?.UITexts == null) 
+        {
+            Debug.LogWarning("UI тексты не загружены!");
+            return "Анамнез:";
+        }
+        
+        return CurrentLanguage.UITexts.MedicalRecordAnamnesis ?? "Анамнез:";
     }
 }

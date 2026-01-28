@@ -78,7 +78,10 @@
         "MedicalRecordPrompt": "Read medical record",
         "InfoDescPrompt": "Get information",
         "StaircaseAvailablePrompt": "Go up stairs",
-        "StaircaseBlockedPrompt": "Go up stairs (unavailable)"
+        "StaircaseBlockedPrompt": "Go up stairs (unavailable)",
+        "MedicalRecordPatient": "Patient:",
+        "MedicalRecordDiagnosis": "Diagnosis:",
+        "MedicalRecordAnamnesis": "Anamnesis:"
     },
     "DialogueTexts": {
         "DefaultGag": "Uh... laugh, please?",

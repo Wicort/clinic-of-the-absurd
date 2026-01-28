@@ -16,9 +16,9 @@ public class MedicalRecord : MonoBehaviour, IInteractive
     {
         if (patient == null) return;
 
-        string patientInfo = $"Пациент: {patient.GetLocalizedName()}\nДиагноз: {patient.GetLocalizedDiagnosis()}";
+        string patientInfo = $"{LocalizationManager.GetMedicalRecordPatient()} {patient.GetLocalizedName()}\n{LocalizationManager.GetMedicalRecordDiagnosis()} {patient.GetLocalizedDiagnosis()}";
         
-        string anamnes = $"Анамнез:\n";
+        string anamnes = $"{LocalizationManager.GetMedicalRecordAnamnesis()}\n";
         string[] localizedAnamnesis = patient.GetLocalizedAnamnesis();
         foreach (string line in localizedAnamnesis)
         {

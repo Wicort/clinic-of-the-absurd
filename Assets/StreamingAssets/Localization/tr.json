@@ -78,7 +78,10 @@
         "MedicalRecordPrompt": "Tıbbi kaydı oku",
         "InfoDescPrompt": "Bilgi al",
         "StaircaseAvailablePrompt": "Merdiven çık",
-        "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)"
+        "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)",
+        "MedicalRecordPatient": "Hasta:",
+        "MedicalRecordDiagnosis": "Teşhis:",
+        "MedicalRecordAnamnesis": "Anamnez:"
     },
     "DialogueTexts": {
         "DefaultGag": "Ee... gülsenize?",
