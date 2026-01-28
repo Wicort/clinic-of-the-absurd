@@ -1,6 +1,33 @@
 {
     "LanguageName": "Русский",
     "LanguageCode": "ru",
+    "UITexts": {
+        "RewardScreenTitle": "Выберите награду",
+        "SelectReward": "Выбрать награду",
+        "LoadingFloor": "Загрузка этажа...",
+        "ReturningToMenu": "Возврат в меню",
+        "VictoryMessage": "Победа!",
+        "StaircaseNotCured": [
+            "Нельзя подняться на следующий этаж, пока не вылечены все пациенты. Осталось: {count}",
+            "Сначала вылечите всех пациентов на этом этаже. Осталось: {count}",
+            "На следующий этаж можно только после излечения всех пациентов. Осталось: {count}"
+        ],
+        "StaircaseNotVisited": [
+            "Нельзя подняться на следующий этаж, пока не осмотрены все палаты",
+            "Сначала посетите все палаты на этом этаже",
+            "Осмотрите все палаты перед подъемом на следующий этаж"
+        ],
+        "WardDoorPrompt": "Войти в палату",
+        "WardExitDoorPrompt": "Выйти из палаты",
+        "WardExitDoorCuredPrompt": "Выйти из палаты (пациент вылечен!)",
+        "MedicalRecordPrompt": "Прочитать историю болезни",
+        "InfoDescPrompt": "Получить информацию",
+        "StaircaseAvailablePrompt": "Подняться по лестнице",
+        "StaircaseBlockedPrompt": "Подняться по лестнице (недоступно)",
+        "MedicalRecordPatient": "Пациент:",
+        "MedicalRecordDiagnosis": "Диагноз:",
+        "MedicalRecordAnamnesis": "Анамнез:"
+    },
     "PatientTexts": {
         "PatientNames": [
             "Анна Семёновна",
