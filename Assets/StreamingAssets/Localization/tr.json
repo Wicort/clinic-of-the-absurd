@@ -81,7 +81,8 @@
         "StaircaseBlockedPrompt": "Merdiven çık (mevcut değil)",
         "MedicalRecordPatient": "Hasta:",
         "MedicalRecordDiagnosis": "Teşhis:",
-        "MedicalRecordAnamnesis": "Anamnez:"
+        "MedicalRecordAnamnesis": "Anamnez:",
+        "PressE": "[E] devam etmek"
     },
     "DialogueTexts": {
         "DefaultGag": "Ee... gülsenize?",

@@ -26,7 +26,8 @@
         "StaircaseBlockedPrompt": "Подняться по лестнице (недоступно)",
         "MedicalRecordPatient": "Пациент:",
         "MedicalRecordDiagnosis": "Диагноз:",
-        "MedicalRecordAnamnesis": "Анамнез:"
+        "MedicalRecordAnamnesis": "Анамнез:",
+        "PressE": "[E] продолжить"
     },
     "PatientTexts": {
         "PatientNames": [

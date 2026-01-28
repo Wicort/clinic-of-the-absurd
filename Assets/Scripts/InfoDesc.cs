@@ -4,8 +4,7 @@ using UnityEngine;
 public class InfoDesc : MonoBehaviour, IInteractive
 {
     [SerializeField] private InfoDescType _infoType = InfoDescType.Tutorial;
-    [SerializeField] private string _prompt = "Получить информацию";
-
+    
     public string GetInteractionPrompt() => LocalizationManager.GetInteractionPrompt(InteractionPromptType.InfoDesc);
 
     public void Interact()

@@ -81,7 +81,8 @@
         "StaircaseBlockedPrompt": "Go up stairs (unavailable)",
         "MedicalRecordPatient": "Patient:",
         "MedicalRecordDiagnosis": "Diagnosis:",
-        "MedicalRecordAnamnesis": "Anamnesis:"
+        "MedicalRecordAnamnesis": "Anamnesis:",
+        "PressE": "[E] continue"
     },
     "DialogueTexts": {
         "DefaultGag": "Uh... laugh, please?",

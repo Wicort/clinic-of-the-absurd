@@ -158,6 +158,9 @@ public class UITexts
     public string MedicalRecordPatient;
     public string MedicalRecordDiagnosis;
     public string MedicalRecordAnamnesis;
+    
+    [Header("Подсказки")]
+    public string PressE;
 }
 
 [Serializable]
@@ -193,6 +196,8 @@ public class PatientTexts
 
 public class LocalizationManager : MonoBehaviour
 {
+    public static event System.Action OnLanguageChanged;
+    
     private static LocalizationManager _instance;
     public static LocalizationManager Instance 
     { 
@@ -370,6 +375,9 @@ public class LocalizationManager : MonoBehaviour
         {
             _currentLanguageCode = languageCode;
             Debug.Log($"Язык изменен на: {CurrentLanguageName} ({CurrentLanguageCode})");
+            
+            // Вызываем событие изменения языка
+            OnLanguageChanged?.Invoke();
         }
         else
         {
@@ -417,6 +425,44 @@ public class LocalizationManager : MonoBehaviour
         }
         
         return gagArray[Random.Range(0, gagArray.Length)];
+    }
+    
+    // Перегрузка для получения гэга по строковому ключу
+    public static string GetGagText(string gagType)
+    {
+        if (CurrentLanguage?.GagTexts == null) 
+        {
+            Debug.LogWarning("Тексты гэгов не загружены!");
+            return "Текст не найден";
+        }
+        
+        string[] gagArray;
+        switch (gagType.ToLower())
+        {
+            case "clownish":
+                gagArray = CurrentLanguage.GagTexts.Clownish;
+                break;
+            case "verbal":
+                gagArray = CurrentLanguage.GagTexts.Verbal;
+                break;
+            case "absurdist":
+                gagArray = CurrentLanguage.GagTexts.Absurdist;
+                break;
+            case "ironic":
+                gagArray = CurrentLanguage.GagTexts.Ironic;
+                break;
+            case "verbalgag":
+                gagArray = CurrentLanguage.GagTexts.VerbalGag;
+                break;
+            case "ironicgag":
+                gagArray = CurrentLanguage.GagTexts.IronicGag;
+                break;
+            default:
+                gagArray = new[] { CurrentLanguage.DialogueTexts.DefaultGag };
+                break;
+        }
+        
+        return gagArray.Length > 0 ? gagArray[Random.Range(0, gagArray.Length)] : "Текст не найден";
     }
     
     public static string GetGagAnimationText(GagAnimationType animationType)
@@ -705,5 +751,24 @@ public class LocalizationManager : MonoBehaviour
         }
         
         return CurrentLanguage.UITexts.MedicalRecordAnamnesis ?? "Анамнез:";
+    }
+    
+    // Публичный метод для перезагрузки локализации (полезно для тестирования)
+    public static void ReloadLocalization()
+    {
+        if (_instance != null)
+        {
+            _instance.LoadAllLanguages();
+            Debug.Log("Локализация перезагружена");
+        }
+        else
+        {
+            // Если инстанс не существует (в редакторе), создаем временный
+            GameObject tempGO = new GameObject("TempLocalizationManager");
+            LocalizationManager tempManager = tempGO.AddComponent<LocalizationManager>();
+            tempManager.LoadAllLanguages();
+            UnityEngine.Object.DestroyImmediate(tempGO);
+            Debug.Log("Локализация перезагружена (в редакторе)");
+        }
     }
 }
