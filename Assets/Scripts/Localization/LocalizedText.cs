@@ -105,6 +105,48 @@ public class LocalizedText : MonoBehaviour
                     return pressEValue;
                 }
             }
+
+            if (key == "InfoDesc")
+            {
+                string value = uiTexts.InfoDesc;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
+            if (key == "PlayButton")
+            {
+                string value = uiTexts.PlayButton;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+            if (key == "ExitButton")
+            {
+                string value = uiTexts.ExitButton;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+            if (key == "SettingsButton")
+            {
+                string value = uiTexts.SettingsButton;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+            if (key == "CardLevel")
+            {
+                string value = uiTexts.CardLevel;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
             
             // Прямые проверки для других полей
             if (key == "MedicalRecordPatient")

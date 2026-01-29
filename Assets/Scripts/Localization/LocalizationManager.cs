@@ -159,8 +159,19 @@ public class UITexts
     public string MedicalRecordDiagnosis;
     public string MedicalRecordAnamnesis;
     
-    [Header("Подсказки")]
+    [Header("Надписи и кнопки")]
     public string PressE;
+    public string PlayButton;
+    public string ExitButton;
+    public string SettingsButton;
+    public string CardLevel;
+    public string InfoDesc;
+    
+    [Header("Типы гэгов")]
+    public string GagTypeClownish;
+    public string GagTypeVerbal;
+    public string GagTypeAbsurdist;
+    public string GagTypeIronic;
 }
 
 [Serializable]
@@ -376,8 +387,11 @@ public class LocalizationManager : MonoBehaviour
             _currentLanguageCode = languageCode;
             Debug.Log($"Язык изменен на: {CurrentLanguageName} ({CurrentLanguageCode})");
             
-            // Вызываем событие изменения языка
+            // Уведомляем все подписанные компоненты о смене языка
             OnLanguageChanged?.Invoke();
+            
+            // Обновляем UI элементов карт гэгов
+            GagCard.RefreshAllGagCardUI();
         }
         else
         {
@@ -751,6 +765,41 @@ public class LocalizationManager : MonoBehaviour
         }
         
         return CurrentLanguage.UITexts.MedicalRecordAnamnesis ?? "Анамнез:";
+    }
+    
+    public static string GetGagTypeName(HumorType gagType)
+    {
+        if (CurrentLanguage?.UITexts == null) 
+        {
+            Debug.LogWarning("UI тексты не загружены!");
+            return GetDefaultGagTypeName(gagType);
+        }
+        
+        switch (gagType)
+        {
+            case HumorType.Clownish:
+                return CurrentLanguage.UITexts.GagTypeClownish ?? "Клоунский";
+            case HumorType.Verbal:
+                return CurrentLanguage.UITexts.GagTypeVerbal ?? "Словесный";
+            case HumorType.Absurdist:
+                return CurrentLanguage.UITexts.GagTypeAbsurdist ?? "Абсурдный";
+            case HumorType.Ironic:
+                return CurrentLanguage.UITexts.GagTypeIronic ?? "Ироничный";
+            default:
+                return GetDefaultGagTypeName(gagType);
+        }
+    }
+    
+    private static string GetDefaultGagTypeName(HumorType gagType)
+    {
+        switch (gagType)
+        {
+            case HumorType.Clownish: return "Клоунский";
+            case HumorType.Verbal: return "Словесный";
+            case HumorType.Absurdist: return "Абсурдный";
+            case HumorType.Ironic: return "Ироничный";
+            default: return "Неизвестный";
+        }
     }
     
     // Публичный метод для перезагрузки локализации (полезно для тестирования)

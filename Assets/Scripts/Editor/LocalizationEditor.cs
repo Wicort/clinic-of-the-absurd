@@ -59,25 +59,7 @@ public class LocalizedTextEditor : Editor
             CheckJSONFiles();
         }
         
-        // Показываем текущее значение PressE для отладки
-        try
-        {
-            var currentLanguage = LocalizationManager.CurrentLanguage;
-            if (currentLanguage?.UITexts != null)
-            {
-                EditorGUILayout.LabelField($"PressE ({currentLanguage.LanguageCode}): {currentLanguage.UITexts.PressE}");
-            }
-            else
-            {
-                EditorGUILayout.LabelField("UITexts: null");
-            }
-        }
-        catch (System.Exception e)
-        {
-            EditorGUILayout.LabelField($"Ошибка: {e.Message}");
-        }
-        
-        // Кнопка для добавления常见 ключей
+        // Кнопка для добавления ключей
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Быстрые ключи:", EditorStyles.boldLabel);
         

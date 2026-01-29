@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 237354942}
   - component: {fileID: 237354944}
   - component: {fileID: 237354943}
+  - component: {fileID: 237354945}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -439,6 +440,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237354941}
   m_CullTransparentMesh: 1
+--- !u!114 &237354945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237354941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7b7d27cff13874bba5dba4de990d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  localizationKey: PlayButton
+  useUpperCase: 0
+  updateOnLanguageChange: 1
 --- !u!1 &278075408
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +752,7 @@ GameObject:
   - component: {fileID: 863969320}
   - component: {fileID: 863969322}
   - component: {fileID: 863969321}
+  - component: {fileID: 863969323}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -804,6 +821,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863969319}
   m_CullTransparentMesh: 1
+--- !u!114 &863969323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863969319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7b7d27cff13874bba5dba4de990d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  localizationKey: ExitButton
+  useUpperCase: 0
+  updateOnLanguageChange: 1
 --- !u!1 &1115230746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1123,50 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &2002055716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2002055718}
+  - component: {fileID: 2002055717}
+  m_Layer: 0
+  m_Name: TextLocalization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2002055717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002055716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9637b717af5949745a4f12e434872e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationManager
+--- !u!4 &2002055718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002055716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.89238, y: 30.85519, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1100,3 +1176,4 @@ SceneRoots:
   - {fileID: 278075412}
   - {fileID: 519724384}
   - {fileID: 805208389}
+  - {fileID: 2002055718}

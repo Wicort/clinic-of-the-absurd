@@ -82,7 +82,16 @@
         "MedicalRecordPatient": "Hasta:",
         "MedicalRecordDiagnosis": "Teşhis:",
         "MedicalRecordAnamnesis": "Anamnez:",
-        "PressE": "[E] devam etmek"
+        "PressE": "[E] devam etmek",
+        "GagTypeClownish": "Palyaço",
+        "GagTypeVerbal": "Sözel",
+        "GagTypeAbsurdist": "Absürt",
+        "GagTypeIronic": "İronik",
+        "PlayButton": "Oyna",
+        "ExitButton": "Çıkış",
+        "SettingsButton": "Ayarlar",
+        "CardLevel": "Seviye",
+        "InfoDesc": "Bilgi"
     },
     "DialogueTexts": {
         "DefaultGag": "Ee... gülsenize?",

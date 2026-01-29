@@ -11,16 +11,18 @@ public class RewardButton : MonoBehaviour
 
     public void Setup(HumorType type, System.Action<HumorType> callback)
     {
+        var uiTexts = LocalizationManager.CurrentLanguage?.UITexts;
+
         _gagType = type;
         _onSelected = callback;
 
         _nameText.text = new GagCard(type).displayName;
 
-        // Показываем уровень существующей карты (если есть)
         GagCard existing = GagDeck.Instance.GetCardByType(type);
         if (existing != null)
         {
-            _levelText.text = $"Уровень: {existing.level + 1}"; // Следующий уровень
+            //_levelText.text = $"Уровень: {existing.level + 1}"; 
+            _levelText.text = $"{uiTexts.CardLevel}: {existing.level + 1}"; 
         }
         else
         {
@@ -31,5 +33,10 @@ public class RewardButton : MonoBehaviour
     public void OnClick()
     {
         _onSelected?.Invoke(_gagType);
+    }
+    
+    public void RefreshText()
+    {
+        _nameText.text = new GagCard(_gagType).displayName;
     }
 }

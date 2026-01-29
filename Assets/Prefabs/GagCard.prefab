@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GagButton
   _buttonText: {fileID: 4249365628616823446}
+  _labelText: {fileID: 8443236462998260176}
 --- !u!114 &687997292759058477
 MonoBehaviour:
   m_ObjectHideFlags: 0

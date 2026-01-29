@@ -13,18 +13,29 @@ public class GagCard
                                            
     // Гэг
     public Sprite icon;
-    public string displayName => GagTypeNames[(int)gagType];                          
-    private static readonly string[] GagTypeNames = {                                        
-        "Клоунский",
-        "Словесный",
-        "Абсурдный",
-        "Ироничный"
-    };
+    public string displayName => LocalizationManager.GetGagTypeName(gagType);
 
     public GagCard(HumorType type)
     {
         gagType = type;
         ApplyLevelEffects();
+    }
+    
+    // Статический метод для обновления всех UI элементов при смене языка
+    public static void RefreshAllGagCardUI()
+    {
+        // Находим все объекты с GagButton и RewardButton и обновляем их текст
+        var gagButtons = UnityEngine.Object.FindObjectsByType<GagButton>(FindObjectsSortMode.None);
+        foreach (var button in gagButtons)
+        {
+            button.RefreshText();
+        }
+        
+        var rewardButtons = UnityEngine.Object.FindObjectsByType<RewardButton>(FindObjectsSortMode.None);
+        foreach (var button in rewardButtons)
+        {
+            button.RefreshText();
+        }
     }
 
     public void LevelUp()

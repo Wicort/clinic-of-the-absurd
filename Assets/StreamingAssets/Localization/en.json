@@ -82,7 +82,16 @@
         "MedicalRecordPatient": "Patient:",
         "MedicalRecordDiagnosis": "Diagnosis:",
         "MedicalRecordAnamnesis": "Anamnesis:",
-        "PressE": "[E] continue"
+        "PressE": "[E] continue",
+        "GagTypeClownish": "Clownish",
+        "GagTypeVerbal": "Verbal",
+        "GagTypeAbsurdist": "Absurdist",
+        "GagTypeIronic": "Ironic",
+        "PlayButton": "Play",
+        "ExitButton": "Quit",
+        "SettingsButton": "Settings",
+        "CardLevel": "Level",
+        "InfoDesc": "Info"
     },
     "DialogueTexts": {
         "DefaultGag": "Uh... laugh, please?",

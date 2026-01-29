@@ -27,7 +27,16 @@
         "MedicalRecordPatient": "Пациент:",
         "MedicalRecordDiagnosis": "Диагноз:",
         "MedicalRecordAnamnesis": "Анамнез:",
-        "PressE": "[E] продолжить"
+        "PressE": "[E] продолжить",
+        "GagTypeClownish": "Клоунский",
+        "GagTypeVerbal": "Словесный",
+        "GagTypeAbsurdist": "Абсурдный",
+        "GagTypeIronic": "Ироничный",
+        "PlayButton": "Играть",
+        "ExitButton": "Выход",
+        "SettingsButton": "Настройки",
+        "CardLevel": "Уровень",
+        "InfoDesc": "Справочное"
     },
     "PatientTexts": {
         "PatientNames": [
