@@ -337,7 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WardDoor
   _doorId: 3_01
   _floorLevel: 3
-  _interactionPrompt: "\u0412\u043E\u0439\u0442\u0438 \u043A \u0433\u043B\u0430\u0432\u0432\u0440\u0430\u0447\u0443"
   _spawnPoint: {fileID: 4601758602377327579}
 --- !u!1 &2320712878625104851
 GameObject:

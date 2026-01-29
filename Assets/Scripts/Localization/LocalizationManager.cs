@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Random = UnityEngine.Random;
+using YG;
 
 // Enum типы для локализации
 public enum HumorType
@@ -207,7 +208,7 @@ public class PatientTexts
 
 public class LocalizationManager : MonoBehaviour
 {
-    public static event System.Action OnLanguageChanged;
+    public static event Action OnLanguageChanged;
     
     private static LocalizationManager _instance;
     public static LocalizationManager Instance 
@@ -298,10 +299,13 @@ public class LocalizationManager : MonoBehaviour
                 _currentLanguageCode = _loadedLanguages.Keys.First();
             }
             // Переключаем на английский если доступен
-            if (_loadedLanguages.ContainsKey("en"))
+            var lang = YG2.lang;
+            if (_loadedLanguages.ContainsKey(lang))
             {
-                _currentLanguageCode = "en";
+                _currentLanguageCode = lang;
             }
+            else
+                _currentLanguageCode = "en";
             Debug.Log($"Установлен язык по умолчанию: {CurrentLanguageName} ({CurrentLanguageCode})");
             
             // Инициализируем сопоставления ключей пациентов
