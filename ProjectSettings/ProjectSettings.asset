@@ -590,24 +590,24 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN
+    Android: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
     Kepler: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    Nintendo Switch: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
     Nintendo Switch 2: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
+    PS4: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    PS5: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
     QNX: DOTWEEN
-    Standalone: DOTWEEN
+    Standalone: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN
-    Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
-    iPhone: DOTWEEN
-    tvOS: DOTWEEN
+    WebGL: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    XboxOne: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    iPhone: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
+    tvOS: DOTWEEN;PLUGIN_YG_2;Authorization_yg;InterstitialAdv_yg;Localization_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;YandexGamesPlatform_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
