@@ -14,7 +14,7 @@ public class GagCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
     private Vector3 _originalPosition;
     private Tween _currentMoveTween;
     private RewardCardHoverAnimation _hoverAnimation;
-    private bool _isHovered = false;
+    public bool _isHovered = false;
     private RectTransform _rectTransform;
     private HorizontalLayoutGroup _layoutGroup;
     
@@ -38,8 +38,8 @@ public class GagCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         _isHovered = true;
         
-        // Временно отключаем Layout Group чтобы избежать конфликтов
-        if (_layoutGroup != null)
+        // Отключаем Layout Group чтобы избежать конфликтов
+        if (_layoutGroup != null && _layoutGroup.enabled)
         {
             _layoutGroup.enabled = false;
         }
@@ -61,11 +61,15 @@ public class GagCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
         // Останавливаем hover анимацию
         _hoverAnimation?.OnPointerExit(eventData);
         
-        // Включаем обратно Layout Group после завершения анимации
+        // Включаем обратно Layout Group после завершения анимации с задержкой
         if (_layoutGroup != null)
         {
             _currentMoveTween.OnComplete(() => {
-                _layoutGroup.enabled = true;
+                // Проверяем, что ни одна карта не находится в состоянии наведения
+                if (!IsAnyCardHovered())
+                {
+                    _layoutGroup.enabled = true;
+                }
             });
         }
     }
@@ -92,6 +96,23 @@ public class GagCardHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPoint
         // Возвращаем в полностью оригинальную позицию
         _currentMoveTween = _rectTransform.DOAnchorPos(_originalPosition, _returnDuration)
             .SetEase(Ease.OutBounce);
+    }
+    
+    private bool IsAnyCardHovered()
+    {
+        // Проверяем все карты с тем же компонентом в родительском объекте
+        GagCardHoverAnimation[] allCards = _layoutGroup?.GetComponentsInChildren<GagCardHoverAnimation>();
+        if (allCards != null)
+        {
+            foreach (var card in allCards)
+            {
+                if (card != null && card._isHovered)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     private void OnDisable()
