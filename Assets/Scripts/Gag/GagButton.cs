@@ -5,6 +5,7 @@ public class GagButton : MonoBehaviour
 {
     [SerializeField] private Text _buttonText;
     [SerializeField] private Text _labelText;
+    [SerializeField] private Image _cardImage;
     private HumorType _gagType;
     private System.Action<HumorType> _onSelected;
 
@@ -17,6 +18,13 @@ public class GagButton : MonoBehaviour
 
         if (_buttonText != null)
             _buttonText.text = new GagCard(type).displayName;
+
+        // Устанавливаем иконку в зависимости от типа гэга
+        if (_cardImage != null)
+        {
+            Sprite gagIcon = GagIconManager.GetGagIcon(type);
+            _cardImage.sprite = gagIcon;
+        }
 
         GagCard existing = GagDeck.Instance.GetCardByType(type);
 

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardButton
   _nameText: {fileID: 4249365628616823446}
   _levelText: {fileID: 8443236462998260176}
+  _cardImage: {fileID: 2666896654530236742}
 --- !u!114 &6300368276115002812
 MonoBehaviour:
   m_ObjectHideFlags: 0

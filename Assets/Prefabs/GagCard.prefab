@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GagButton
   _buttonText: {fileID: 4249365628616823446}
   _labelText: {fileID: 8443236462998260176}
+  _cardImage: {fileID: 2666896654530236742}
 --- !u!114 &687997292759058477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,9 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b702ef1f9cf585c4f8ee7de5e715928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GagCardHoverAnimation
-  _flyUpDistance: 150
+  _flyUpDistance: 250
   _flyUpDuration: 0.3
   _returnDuration: 0.4
+  _isHovered: 0
 --- !u!114 &-3293858023835388346
 MonoBehaviour:
   m_ObjectHideFlags: 0
