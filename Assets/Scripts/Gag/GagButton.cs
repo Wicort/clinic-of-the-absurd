@@ -36,6 +36,7 @@ public class GagButton : MonoBehaviour
 
     public void OnClick()
     {
+        AudioUtils.PlayClick();
         _onSelected?.Invoke(_gagType);
     }
     

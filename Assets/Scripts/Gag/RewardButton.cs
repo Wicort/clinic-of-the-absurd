@@ -40,6 +40,7 @@ public class RewardButton : MonoBehaviour
 
     public void OnClick()
     {
+        AudioUtils.PlayClick();
         _onSelected?.Invoke(_gagType);
     }
     

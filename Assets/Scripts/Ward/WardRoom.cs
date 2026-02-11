@@ -85,6 +85,9 @@ public class WardRoom : MonoBehaviour
     {
         if (_currentPatient == null || _isPatientCured) return;
 
+        // Проигрываем звук гэга
+        AudioUtils.PlayGagSound(gagType);
+
         if (_isBossMode)
         {
             HandleBossGag(gagType);
@@ -170,6 +173,7 @@ public class WardRoom : MonoBehaviour
     {
         Debug.Log("BOSS DEFEATED! Game completed.");
 
+        AudioUtils.PlayVictory();
         PlayPatientReaction("смех");
         _isPatientCured = true;
 
@@ -374,10 +378,28 @@ public class WardRoom : MonoBehaviour
     private void PlayPatientReaction(string emotion)
     {
         Debug.Log($"{emotion}");
+        
+        // Проигрываем звук реакции пациента
+        switch (emotion.ToLower())
+        {
+            case "злость":
+            case "anger":
+                AudioUtils.PlayPatientReaction(PatientReactionType.Angry);
+                break;
+            case "смех":
+            case "happy":
+                AudioUtils.PlayPatientReaction(PatientReactionType.Happy);
+                break;
+            case "нейтрально":
+            case "neutral":
+                AudioUtils.PlayPatientReaction(PatientReactionType.Neutral);
+                break;
+        }
     }
 
     private void OnGagRewardSelected(HumorType gagType)
     {
+        AudioUtils.PlayReward();
         GagDeck.Instance.AddGag(gagType);
         CreateGagButtons();
 
