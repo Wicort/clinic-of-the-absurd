@@ -117,9 +117,13 @@
         "GagTypeIronic": "Ироничный",
         "PlayButton": "Играть",
         "ExitButton": "Выход",
+        "CloseButton": "Закрыть",
         "SettingsButton": "Настройки",
         "CardLevel": "Уровень",
-        "InfoDesc": "Справочное"
+        "InfoDesc": "Справочное",
+        "Music": "Музыка",
+        "Effects": "Звук",
+        "Localization": "Локализация"
     },
     "PatientTexts": {
         "PatientNames": [

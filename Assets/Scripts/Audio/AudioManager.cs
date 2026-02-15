@@ -3,6 +3,9 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    private const string MusicVolumePrefKey = "audio_music_volume";
+    private const string SfxVolumePrefKey = "audio_sfx_volume";
+
     private static AudioManager _instance;
     public static AudioManager Instance
     {
@@ -38,6 +41,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _doorOpenSound;
     [SerializeField] private AudioClip _rewardSound;
     [SerializeField] private AudioClip _victorySound;
+
+    private float _musicVolume01 = 1f;
+    private float _sfxVolume01 = 1f;
     
     private void Awake()
     {
@@ -45,6 +51,9 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
+
+            _musicVolume01 = PlayerPrefs.GetFloat(MusicVolumePrefKey, 1f);
+            _sfxVolume01 = PlayerPrefs.GetFloat(SfxVolumePrefKey, 1f);
         }
         else if (_instance != this)
         {
@@ -68,9 +77,17 @@ public class AudioManager : MonoBehaviour
             _sfxSource.loop = false;
             _sfxSource.playOnAwake = false;
         }
+
+        ApplyVolumes();
         
         // Автоматически запускаем музыку в зависимости от сцены
         StartMusicForCurrentScene();
+    }
+
+    private void ApplyVolumes()
+    {
+        SetMusicVolume(_musicVolume01);
+        SetSFXVolume(_sfxVolume01);
     }
     
     private void StartMusicForCurrentScene()
@@ -154,10 +171,26 @@ public class AudioManager : MonoBehaviour
     
     public static void SetMusicVolume(float volume)
     {
-        if (Instance?._musicMixerGroup != null)
+        if (Instance == null) return;
+
+        Instance._musicVolume01 = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(MusicVolumePrefKey, Instance._musicVolume01);
+
+        if (Instance._musicSource != null)
         {
-            Instance._musicMixerGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+            Instance._musicSource.volume = Instance._musicVolume01;
         }
+
+        if (Instance._musicMixerGroup != null)
+        {
+            float db = LinearToDb(Instance._musicVolume01);
+            Instance._musicMixerGroup.audioMixer.SetFloat("MusicVolume", db);
+        }
+    }
+
+    public static float GetMusicVolume01()
+    {
+        return Instance != null ? Instance._musicVolume01 : PlayerPrefs.GetFloat(MusicVolumePrefKey, 1f);
     }
     
     #endregion
@@ -220,10 +253,26 @@ public class AudioManager : MonoBehaviour
     
     public static void SetSFXVolume(float volume)
     {
-        if (Instance?._sfxMixerGroup != null)
+        if (Instance == null) return;
+
+        Instance._sfxVolume01 = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(SfxVolumePrefKey, Instance._sfxVolume01);
+
+        if (Instance._sfxSource != null)
         {
-            Instance._sfxMixerGroup.audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+            Instance._sfxSource.volume = Instance._sfxVolume01;
         }
+
+        if (Instance._sfxMixerGroup != null)
+        {
+            float db = LinearToDb(Instance._sfxVolume01);
+            Instance._sfxMixerGroup.audioMixer.SetFloat("SFXVolume", db);
+        }
+    }
+
+    public static float GetSfxVolume01()
+    {
+        return Instance != null ? Instance._sfxVolume01 : PlayerPrefs.GetFloat(SfxVolumePrefKey, 1f);
     }
     
     #endregion
@@ -249,6 +298,12 @@ public class AudioManager : MonoBehaviour
     public static bool IsMusicPlaying()
     {
         return Instance?._musicSource != null && Instance._musicSource.isPlaying;
+    }
+
+    private static float LinearToDb(float volume01)
+    {
+        float v = Mathf.Clamp(volume01, 0.0001f, 1f);
+        return Mathf.Log10(v) * 20f;
     }
     
     #endregion

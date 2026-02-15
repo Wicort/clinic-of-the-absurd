@@ -165,8 +165,13 @@ public class UITexts
     public string PlayButton;
     public string ExitButton;
     public string SettingsButton;
+    public string CloseButton;
     public string CardLevel;
     public string InfoDesc;
+    public string Music;
+    public string SFX;
+    public string Effects;
+    public string Localization;
     
     [Header("Типы гэгов")]
     public string GagTypeClownish;
@@ -209,6 +214,8 @@ public class PatientTexts
 public class LocalizationManager : MonoBehaviour
 {
     public static event Action OnLanguageChanged;
+
+    private const string LanguagePrefKey = "localization_language";
     
     private static LocalizationManager _instance;
     public static LocalizationManager Instance 
@@ -306,6 +313,12 @@ public class LocalizationManager : MonoBehaviour
             }
             else
                 _currentLanguageCode = "en";
+
+            string savedLanguage = PlayerPrefs.GetString(LanguagePrefKey, string.Empty);
+            if (!string.IsNullOrEmpty(savedLanguage) && _loadedLanguages.ContainsKey(savedLanguage))
+            {
+                _currentLanguageCode = savedLanguage;
+            }
             Debug.Log($"Установлен язык по умолчанию: {CurrentLanguageName} ({CurrentLanguageCode})");
             
             // Инициализируем сопоставления ключей пациентов
@@ -389,6 +402,7 @@ public class LocalizationManager : MonoBehaviour
         if (_loadedLanguages.ContainsKey(languageCode))
         {
             _currentLanguageCode = languageCode;
+            PlayerPrefs.SetString(LanguagePrefKey, _currentLanguageCode);
             Debug.Log($"Язык изменен на: {CurrentLanguageName} ({CurrentLanguageCode})");
             
             // Уведомляем все подписанные компоненты о смене языка

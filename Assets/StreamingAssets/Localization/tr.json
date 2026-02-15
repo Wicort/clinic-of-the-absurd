@@ -89,9 +89,13 @@
         "GagTypeIronic": "İronik",
         "PlayButton": "Oyna",
         "ExitButton": "Çıkış",
+        "CloseButton": "Kapat",
         "SettingsButton": "Ayarlar",
         "CardLevel": "Seviye",
-        "InfoDesc": "Bilgi"
+        "InfoDesc": "Bilgi",
+        "Music": "Müzik",
+        "Effects": "SFX",
+        "Localization": "Lokalizasyon"
     },
     "DialogueTexts": {
         "DefaultGag": "Ee... gülsenize?",

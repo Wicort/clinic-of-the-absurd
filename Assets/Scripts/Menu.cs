@@ -8,6 +8,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void OnSettingsButtonClick()
+    {
+        SettingsDialogController.Open();
+    }
+
     public void OnExitButtonClick()
     {
         Application.Quit();

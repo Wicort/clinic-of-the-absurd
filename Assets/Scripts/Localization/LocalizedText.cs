@@ -16,17 +16,31 @@ public class LocalizedText : MonoBehaviour
     {
         _textComponent = GetComponent<Text>();
         _originalText = _textComponent.text;
-        
+    }
+
+    private void OnEnable()
+    {
         // Подписываемся на изменение языка если нужно
         if (updateOnLanguageChange)
         {
+            LocalizationManager.OnLanguageChanged -= UpdateText;
             LocalizationManager.OnLanguageChanged += UpdateText;
         }
+
+        UpdateText();
     }
     
     private void Start()
     {
         UpdateText();
+    }
+
+    private void OnDisable()
+    {
+        if (updateOnLanguageChange)
+        {
+            LocalizationManager.OnLanguageChanged -= UpdateText;
+        }
     }
     
     private void OnDestroy()
@@ -63,7 +77,7 @@ public class LocalizedText : MonoBehaviour
         
         // 1. UI тексты
         string uiText = GetUIText(localizationKey);
-        if (!string.IsNullOrEmpty(uiText) && uiText != localizationKey)
+        if (!string.IsNullOrEmpty(uiText))
         {
             return uiText;
         }
@@ -93,7 +107,7 @@ public class LocalizedText : MonoBehaviour
             var uiTexts = LocalizationManager.CurrentLanguage?.UITexts;
             if (uiTexts == null) 
             {
-                return key;
+                return string.Empty;
             }
             
             // Прямая проверка для PressE (обход проблемы с рефлексией)
@@ -123,6 +137,7 @@ public class LocalizedText : MonoBehaviour
                     return value;
                 }
             }
+
             if (key == "ExitButton")
             {
                 string value = uiTexts.ExitButton;
@@ -131,6 +146,7 @@ public class LocalizedText : MonoBehaviour
                     return value;
                 }
             }
+
             if (key == "SettingsButton")
             {
                 string value = uiTexts.SettingsButton;
@@ -139,9 +155,61 @@ public class LocalizedText : MonoBehaviour
                     return value;
                 }
             }
+
+            if (key == "CloseButton")
+            {
+                string value = uiTexts.CloseButton;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
             if (key == "CardLevel")
             {
                 string value = uiTexts.CardLevel;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
+            if (key == "Music")
+            {
+                string value = uiTexts.Music;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
+            if (key == "Effects")
+            {
+                string value = uiTexts.Effects;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
+            if (key == "SFX")
+            {
+                string value = uiTexts.SFX;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+                
+                value = uiTexts.Effects;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    return value;
+                }
+            }
+
+            if (key == "Localization")
+            {
+                string value = uiTexts.Localization;
                 if (!string.IsNullOrEmpty(value))
                 {
                     return value;
@@ -164,11 +232,11 @@ public class LocalizedText : MonoBehaviour
                 return uiTexts.MedicalRecordAnamnesis;
             }
             
-            // Используем рефлексию для получения свойства по имени
-            var property = typeof(UITexts).GetProperty(key);
-            if (property != null && property.PropertyType == typeof(string))
+            // UITexts в проекте использует public поля, поэтому ищем Field по имени
+            var field = typeof(UITexts).GetField(key);
+            if (field != null && field.FieldType == typeof(string))
             {
-                return property.GetValue(uiTexts) as string;
+                return field.GetValue(uiTexts) as string;
             }
             
             // Для массивов используем индекс (например "StaircaseNotCured_0")
@@ -180,10 +248,10 @@ public class LocalizedText : MonoBehaviour
                     string arrayName = parts[0];
                     if (int.TryParse(parts[1], out int index))
                     {
-                        var arrayProperty = typeof(UITexts).GetProperty(arrayName);
-                        if (arrayProperty != null && arrayProperty.PropertyType == typeof(string[]))
+                        var arrayField = typeof(UITexts).GetField(arrayName);
+                        if (arrayField != null && arrayField.FieldType == typeof(string[]))
                         {
-                            string[] array = arrayProperty.GetValue(uiTexts) as string[];
+                            string[] array = arrayField.GetValue(uiTexts) as string[];
                             if (array != null && index >= 0 && index < array.Length)
                             {
                                 return array[index];
@@ -198,7 +266,7 @@ public class LocalizedText : MonoBehaviour
             Debug.LogError($"Ошибка при получении UI текста для ключа '{key}': {e.Message}");
         }
         
-        return key;
+        return string.Empty;
     }
     
     private string GetPatientText(string key)

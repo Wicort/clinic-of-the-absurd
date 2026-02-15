@@ -88,10 +88,14 @@
         "GagTypeAbsurdist": "Absurdist",
         "GagTypeIronic": "Ironic",
         "PlayButton": "Play",
-        "ExitButton": "Quit",
+        "ExitButton": "Quit",   
+        "CloseButton": "Close",
         "SettingsButton": "Settings",
         "CardLevel": "Level",
-        "InfoDesc": "Info"
+        "InfoDesc": "Info",
+        "Music": "Music",
+        "Effects": "SFX",
+        "Localization": "Localization"
     },
     "DialogueTexts": {
         "DefaultGag": "Uh... laugh, please?",
