@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WardDoor
   _doorId: 2_03
   _floorLevel: 2
-  _interactionPrompt: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u043F\u0430\u043B\u0430\u0442\u0443"
   _spawnPoint: {fileID: 231947863717354828}
 --- !u!1 &1073356798384348561
 GameObject:
@@ -441,7 +440,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WardDoor
   _doorId: 2_01
   _floorLevel: 2
-  _interactionPrompt: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u043F\u0430\u043B\u0430\u0442\u0443"
   _spawnPoint: {fileID: 1288375822111441055}
 --- !u!1 &2283993145718773613
 GameObject:
@@ -3031,7 +3029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WardDoor
   _doorId: 2_02
   _floorLevel: 2
-  _interactionPrompt: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u043F\u0430\u043B\u0430\u0442\u0443"
   _spawnPoint: {fileID: 8715285739162729840}
 --- !u!1 &7293661815943414551
 GameObject:
@@ -3696,7 +3693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WardDoor
   _doorId: 2_04
   _floorLevel: 2
-  _interactionPrompt: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u043F\u0430\u043B\u0430\u0442\u0443"
   _spawnPoint: {fileID: 9058486295531772746}
 --- !u!1001 &4081740107408284979
 PrefabInstance:
